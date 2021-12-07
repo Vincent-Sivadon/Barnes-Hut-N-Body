@@ -21,9 +21,9 @@ Rect newRect(double x, double y, double w, double h) {
     return rect;
 }
 bool inRect(Point point, Rect rect) {
-    return (point.x >= (rect.x - rect.w) &&
+    return (point.x > (rect.x - rect.w) &&
             point.x <= (rect.x + rect.w) &&
-            point.y >= (rect.y - rect.h) &&
+            point.y > (rect.y - rect.h) &&
             point.y <= (rect.y + rect.h));
 }
 bool intersect(Rect rect1, Rect rect2) {

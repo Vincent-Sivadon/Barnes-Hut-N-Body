@@ -24,7 +24,7 @@ genPRECquad: QUAD/main.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simu
 	$(CC) -DPREC QUAD/main.c -o quad $(sdllib) -lm
 	sudo taskset -c 2 ./quad > PRECISION/quad.dat
 quad: QUAD/main.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h makefile
-	$(CC) -Ofast -DOVERALLPERF QUAD/main.c -o quad $(sdllib) -lm
+	$(CC) -Ofast -DOVERALLPERF -DBIG QUAD/main.c -o quad $(sdllib) -lm
 #sudo taskset -c 2 ./quad
 memtest: QUAD/memtest.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h makefile
 	$(CC) -pg QUAD/memtest.c -o memtest $(sdllib) -lm

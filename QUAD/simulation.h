@@ -24,11 +24,14 @@ double randD(double shift, double width) {
 //
 void init_system() {
     //
-    WIDTH = HEIGHT = 800;
+    WIDTH = 1600;
+    HEIGHT = 900;
 
     // Number of bodies
     #if defined PERF1000
         N = 1000;
+    #elif defined BIG
+        N = 10000;
     #else 
         N = 500;
     #endif

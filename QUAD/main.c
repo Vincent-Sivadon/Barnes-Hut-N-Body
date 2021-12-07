@@ -32,11 +32,12 @@ int main() {
     SDL_Window *window;
     SDL_Renderer *renderer;
 
-    SDL_Init(SDL_INIT_VIDEO);
-    SDL_CreateWindowAndRenderer(800, 800, SDL_WINDOW_OPENGL, &window, &renderer);
-
-
     init_system();
+
+    SDL_Init(SDL_INIT_VIDEO);
+    SDL_CreateWindowAndRenderer(WIDTH, HEIGHT, SDL_WINDOW_OPENGL, &window, &renderer);
+
+
 
     Rect boundary = newRect(WIDTH/2,HEIGHT/2,WIDTH/2,HEIGHT/2);
     Quad* quad;
@@ -63,7 +64,7 @@ int main() {
 
         simulate(quad);
 
-        drawQuad(renderer, quad);
+        //drawQuad(renderer, quad);
 
         deconstructTree(quad);
 
@@ -91,7 +92,6 @@ int main() {
         }
 
         SDL_RenderPresent(renderer);
-        SDL_Delay(20);
 
         while (SDL_PollEvent(&event))
         if (event.type == SDL_QUIT)
