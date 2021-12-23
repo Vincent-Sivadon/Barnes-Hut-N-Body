@@ -31,7 +31,7 @@ void init_system() {
     #if defined PERF1000
         N = 1000;
     #elif defined BIG
-        N = 10000;
+        N = 1000;
     #else 
         N = 500;
     #endif
@@ -64,25 +64,31 @@ void force(int i, Point j, double m) {
 
 
 void compute_acceleration(Quad* quad, int i) {
+    Point a = fluid[i].pos;
+
     if( !quad->is_divided) {
         if (quad->id == i || quad->size==0) return;
         // Compute the force between and the particle in the external node
-        Point j = fluid[quad->id].pos;
-        force(i, j, masse);
+        Point b = fluid[quad->id].pos;
+
+        double r = sqrt( (a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
+
+        fluid[i].acc.x += (b.x - a.x) * masse / (1e7 + r*r*r);
+        fluid[i].acc.y += (b.y - a.y) * masse / (1e7 + r*r*r);
     }
     else {
         // Distance between quad center and our particle i
-        double r2 = pow(quad->boundary.x - fluid[i].pos.x, 2) +
-                    pow(quad->boundary.y - fluid[i].pos.y, 2);
-        double theta = pow(2*quad->boundary.w,2) / r2;
+        double r2 = (quad->boundary.x - a.x)*(quad->boundary.x - a.x) +
+                    (quad->boundary.y - a.y)*(quad->boundary.y - a.y);
+        double theta = (2*quad->boundary.w)*(2*quad->boundary.w) / r2;
 
         if(theta < 0.5) {
-            //Point cm = centerOfMass(quad);
-            //cm.x = cm.x / quad->size;
-            //cm.y = cm.y / quad->size;
+            Point b = {quad->boundary.x, quad->boundary.y};
 
-            Point quad_center = {quad->boundary.x, quad->boundary.y};
-            force(i, quad_center, masse * quad->size);
+            double r = sqrt( r2 );
+
+            fluid[i].acc.x += (b.x - a.x) * masse * quad->size / (1e7 + r*r*r);
+            fluid[i].acc.y += (b.y - a.y) * masse * quad->size / (1e7 + r*r*r);
             return;
         }
         compute_acceleration(quad->northwest, i);

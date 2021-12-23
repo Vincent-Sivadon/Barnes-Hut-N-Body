@@ -108,6 +108,7 @@ void deconstructTree(Quad* quad) {
     free(quad);
 }
 
+#if defined SDL
 void drawQuad(SDL_Renderer* renderer, Quad* quad) {
     // If external
     if( !quad->is_divided ) return;
@@ -139,7 +140,7 @@ void drawQuad(SDL_Renderer* renderer, Quad* quad) {
         drawQuad(renderer, quad->southeast);
     }
 }
-
+#endif
 
 Point centerOfMass(Quad* quad) {
     Point cm = {0,0};

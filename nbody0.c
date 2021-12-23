@@ -9,8 +9,11 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <omp.h>
 
+#if defined SDL
 #include <SDL2/SDL.h>
+#endif
 
 
 //
@@ -94,7 +97,7 @@ void init_system()
   #if defined PERF1000
     nbodies = 1000;
   #else
-    nbodies = 500;
+    nbodies = 1000;
   #endif
 
   GravConstant = 1;
@@ -177,32 +180,37 @@ void simulate()
 //
 int main(int argc, char **argv)
 {
+  srand(2);
+
   //
   int i;
   unsigned char quit = 0;
+  #if defined SDL
   SDL_Event event;
   SDL_Window *window;
   SDL_Renderer *renderer;
 
-  srand(2);
-  
   //
   SDL_Init(SDL_INIT_VIDEO);
   SDL_CreateWindowAndRenderer(800, 800, SDL_WINDOW_OPENGL, &window, &renderer);
-  
+  #endif
+
   //
   init_system();
+
+  double perf = 0;
   
   //Main loop
   for (int i = 0; !quit && i < timeSteps; i++)
     {	  
       //
-      double before = (double)rdtsc();
+      double before = omp_get_wtime();
       
       simulate();
 
       //
-      double after = (double)rdtsc();
+      double after = omp_get_wtime();
+      perf += after-before;
     
       #ifdef PERF500
         printf("%d %lf\n", i, (after - before));
@@ -210,6 +218,7 @@ int main(int argc, char **argv)
         printf("%d %lf\n", i, (after - before));
       #endif
 
+      #if defined SDL
       SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
       SDL_RenderClear(renderer);
       
@@ -231,11 +240,18 @@ int main(int argc, char **argv)
 	  if (event.type == SDL_KEYDOWN)
 	    if (event.key.keysym.sym == SDLK_q)
 	      quit = 1;
+      #endif
     }
+
+    double bw = (nbodies * 6 * 64* 10e-9) * timeSteps/perf;
+    printf("Overall time (s) : %lf\n", perf);
+    printf("Bandwidth (GB/s) : %lf\n", bw);
   
+  #if defined SDL
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(window);
   SDL_Quit();
-  
+  #endif
+
   return 0;
 }

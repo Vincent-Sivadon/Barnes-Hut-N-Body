@@ -3,8 +3,11 @@
 #include <math.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <omp.h>
 
+#if defined SDL
 #include <SDL2/SDL.h>
+#endif
 
 #include "geometry.h"
 #include "global.h"
@@ -12,32 +15,23 @@
 #include "simulation.h"
 
 
-// RDTSC
-unsigned long long rdtsc(void)
-{
-  unsigned long long a, d;
-  
-  __asm__ volatile ("rdtsc" : "=a" (a), "=d" (d));
-  
-  return (d << 32) | a;
-}
-
 
 int main() {
     // Init Rand Seed
     srand(2);
 
+    init_system();
+
     unsigned char quit = 0;
+    #if defined SDL
     SDL_Event event;
     SDL_Window *window;
     SDL_Renderer *renderer;
 
-    init_system();
 
     SDL_Init(SDL_INIT_VIDEO);
     SDL_CreateWindowAndRenderer(WIDTH, HEIGHT, SDL_WINDOW_OPENGL, &window, &renderer);
-
-
+    #endif
 
     Rect boundary = newRect(WIDTH/2,HEIGHT/2,WIDTH/2,HEIGHT/2);
     Quad* quad;
@@ -46,12 +40,13 @@ int main() {
 
     // Main loop
     for(int i=0 ; !quit && i<Nt ; i++) {
-        
+        #if defined SDL
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
+        #endif
 
         // ----------------------------------------------------------------------------
-        double before = (double) rdtsc(); // ------------------------------------------
+        double before = omp_get_wtime(); // ------------------------------------------
 
         quad = newQuad(boundary);
         subdivide(quad);
@@ -68,7 +63,7 @@ int main() {
 
         deconstructTree(quad);
 
-        double after  = (double) rdtsc(); // ------------------------------------------
+        double after  = omp_get_wtime(); // ------------------------------------------
         // ----------------------------------------------------------------------------
 
         perf += after-before;
@@ -79,6 +74,7 @@ int main() {
             printf("%d %lf\n", i, (after - before));
         #endif
 
+        #if defined SDL
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
         // Draw every particle
@@ -100,18 +96,25 @@ int main() {
             if (event.type == SDL_KEYDOWN)
             if (event.key.keysym.sym == SDLK_q)
                 quit = 1;
+        #endif
 
     }
+
+    double bw = (N * 6 * 64* 10e-9) * Nt/perf;
+
     #if defined OVERALLPERF
-        printf("Overall cycles time : %lf\n", perf);
+        printf("Overall time (s) : %lf\n", perf);
+        printf("Bandwith (GB/sec): %lf\n", bw);
     #endif
   
     free(fluid);
 
     // CLEAN
+    #if defined SDL
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
+    #endif
 
     return 0;
 }

@@ -15,34 +15,34 @@ plotPerf1000: PERF/1000_quad.dat PERF/1000_0.dat
 
 # QUAD DATA GENERATION
 genPerf500quad: QUAD/main.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h
-	$(CC) -Ofast -DPERF500 QUAD/main.c -o quad $(sdllib) -lm
+	$(CC) -Ofast -DPERF500 QUAD/main.c -o quad $(sdllib) -lm -fopenmp
 	sudo taskset -c 2 ./quad > PERF/500_quad.dat
 genPerf1000quad: QUAD/main.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h
-	$(CC) -Ofast -DPERF1000 QUAD/main.c -o quad $(sdllib) -lm
+	$(CC) -Ofast -DPERF1000 QUAD/main.c -o quad $(sdllib) -lm -fopenmp
 	sudo taskset -c 2 ./quad > PERF/1000_quad.dat
 genPRECquad: QUAD/main.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h
 	$(CC) -DPREC QUAD/main.c -o quad $(sdllib) -lm
 	sudo taskset -c 2 ./quad > PRECISION/quad.dat
 quad: QUAD/main.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h makefile
-	$(CC) -Ofast -DOVERALLPERF -DBIG QUAD/main.c -o quad $(sdllib) -lm
+	$(CC) -Ofast -DOVERALLPERF -DSDL -DBIG QUAD/main.c -o quad $(sdllib) -lm -fopenmp
 #sudo taskset -c 2 ./quad
 memtest: QUAD/memtest.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h makefile
-	$(CC) -pg QUAD/memtest.c -o memtest $(sdllib) -lm
+	$(CC) -pg QUAD/memtest.c -o memtest $(sdllib) -lm -fopenmp
 
 # NBODY0 DATA GENERATION
 genPerf500_0: nbody0.c
-	$(CC) -DPERF500 nbody0.c -o nbody0 $(sdllib) -lm
+	$(CC) -Ofast -DPERF500 nbody0.c -o nbody0 $(sdllib) -lm -fopenmp
 	sudo taskset -c 2 ./nbody0 > PERF/500_0.dat
 genPerf1000_0: nbody0.c
-	$(CC) -DPERF1000 nbody0.c -o nbody0 $(sdllib) -lm
+	$(CC) -Ofast -DPERF1000 nbody0.c -o nbody0 $(sdllib) -lm -fopenmp
 	sudo taskset -c 2 ./nbody0 > PERF/1000_0.dat
 genPREC_0: nbody0.c
-	$(CC) -DPREC nbody0.c -o nbody0 $(sdllib) -lm
+	$(CC) -DPREC nbody0.c -o nbody0 $(sdllib) -lm -fopenmp
 	sudo taskset -c 2 ./nbody0 > PRECISION/0.dat
 
 # NBODYSOA DATA GENERATION
 genPREC_SOA: nbodySOA.c
-	$(CC) -DPREC nbodySOA.c -o nbodySOA $(sdllib) -lm
+	$(CC) -DPREC nbodySOA.c -o nbodySOA $(sdllib) -lm -fopenmp
 	sudo taskset -c 2 ./nbodySOA > PRECISION/SOA.dat
 
 
@@ -62,18 +62,19 @@ comp_SOA: PRECISION/comparaison.c PRECISION/SOA.dat PRECISION/0.dat
 
 
 base:  nbody0.c
-	$(CC) $< -o nbody0 $(sdllib) -lm
+	$(CC) $(CFLAGS) $< -o nbody0 $(sdllib) -lm -fopenmp
 
 
 SOA: nbodySOA.c
-	$(CC) $(CFLAGS) $< -o nbodySOA $(sdllib) -lm
+	$(CC) $(CFLAGS) $< -o nbodySOA $(sdllib) -lm -fopenmp
 
 AOS: nbody1.c
-	$(CC) $(CFLAGS) $< -o nbody1 $(sdllib) -lm
+	$(CC) $(CFLAGS) $< -o nbody1 $(sdllib) -lm -fopenmp
 
 test_quad2: QUAD/test.c QUAD/main.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h
-	$(CC) QUAD/test.c -o test_quad2 $(sdllib) -lm
+	$(CC) QUAD/test.c -o test_quad2 $(sdllib) -lm -fopenmp
 
 
 clean:
 	rm -f nbody1 nbodySOA nbody0 quad quad2 memtest a.out
+	rm -r maqao*

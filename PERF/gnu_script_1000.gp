@@ -3,8 +3,7 @@ set output 'perf_1000.png'
 
 set grid
 
-set ylabel "Latency in cycles"
-set logscale y
+set ylabel "Times"
 
 
 set xlabel "Simulation iteration"
