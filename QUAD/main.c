@@ -80,11 +80,11 @@ int main() {
         // Draw every particle
         for(int i=0 ; i<N ; i++){
             #if defined PREC
-                printf("%.12lf\n", fluid[i].pos.x);
+                printf("%.12lf\n", pos.x[i]);
             #endif
 
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-            SDL_RenderDrawPoint(renderer, fluid[i].pos.x, fluid[i].pos.y);
+            SDL_RenderDrawPoint(renderer, pos.x[i], pos.y[i]);
         }
 
         SDL_RenderPresent(renderer);
@@ -107,7 +107,13 @@ int main() {
         printf("Bandwith (GB/sec): %lf\n", bw);
     #endif
   
-    free(fluid);
+    free(pos.x);
+    free(pos.y);
+    free(vel.x);
+    free(vel.y);
+    free(acc.x);
+    free(acc.y);
+    
 
     // CLEAN
     #if defined SDL

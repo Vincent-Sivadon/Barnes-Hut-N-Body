@@ -97,7 +97,7 @@ void init_system()
   #if defined PERF1000
     nbodies = 1000;
   #else
-    nbodies = 1000;
+    nbodies = 500;
   #endif
 
   GravConstant = 1;

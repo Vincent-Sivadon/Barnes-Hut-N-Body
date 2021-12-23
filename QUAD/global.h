@@ -1,7 +1,7 @@
 #pragma once
 
 // Bodies variables
-Particle* fluid;
+Field pos, vel, acc;
 
 // Dimensions of window
 int WIDTH, HEIGHT;

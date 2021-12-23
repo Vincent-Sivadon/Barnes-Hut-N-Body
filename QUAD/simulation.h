@@ -31,7 +31,7 @@ void init_system() {
     #if defined PERF1000
         N = 1000;
     #elif defined BIG
-        N = 1000;
+        N = 20000;
     #else 
         N = 500;
     #endif
@@ -40,41 +40,36 @@ void init_system() {
     masse = 5;
 
     // Pointer to all particles
-    fluid = malloc(N * sizeof(Particle));
+    pos.x = malloc(N * sizeof(double));
+    pos.y = malloc(N * sizeof(double));
+    vel.x = malloc(N * sizeof(double));
+    vel.y = malloc(N * sizeof(double));
+    acc.x = malloc(N * sizeof(double));
+    acc.y = malloc(N * sizeof(double));
 
     // for every particles
     for(int i=0; i<N ; i++) {
-        fluid[i].pos.x = randxy(10, WIDTH);
-        fluid[i].pos.y = randxy(10, HEIGHT);
+        pos.x[i] = randxy(10, WIDTH);
+        pos.y[i] = randxy(10, HEIGHT);
 
-        fluid[i].vel.x = randreal();
-        fluid[i].vel.y = randreal();
+        vel.x[i] = randreal();
+        vel.y[i] = randreal();
     }
 }
 
 
-void force(int i, Point j, double m) {
-    //
-    double r = mod(fluid[i].pos, j);
-    
-    //
-    fluid[i].acc.x += (j.x - fluid[i].pos.x) * m / (1e7 + pow(r, 3));
-    fluid[i].acc.y += (j.y - fluid[i].pos.y) * m / (1e7 + pow(r, 3));
-}
-
-
 void compute_acceleration(Quad* quad, int i) {
-    Point a = fluid[i].pos;
+    Point a = {pos.x[i], pos.y[i]};
 
     if( !quad->is_divided) {
         if (quad->id == i || quad->size==0) return;
         // Compute the force between and the particle in the external node
-        Point b = fluid[quad->id].pos;
+        Point b = {pos.x[quad->id], pos.y[quad->id]};
 
         double r = sqrt( (a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
 
-        fluid[i].acc.x += (b.x - a.x) * masse / (1e7 + r*r*r);
-        fluid[i].acc.y += (b.y - a.y) * masse / (1e7 + r*r*r);
+        acc.x[i] += (b.x - a.x) * masse / (1e7 + r*r*r);
+        acc.y[i] += (b.y - a.y) * masse / (1e7 + r*r*r);
     }
     else {
         // Distance between quad center and our particle i
@@ -87,8 +82,8 @@ void compute_acceleration(Quad* quad, int i) {
 
             double r = sqrt( r2 );
 
-            fluid[i].acc.x += (b.x - a.x) * masse * quad->size / (1e7 + r*r*r);
-            fluid[i].acc.y += (b.y - a.y) * masse * quad->size / (1e7 + r*r*r);
+            acc.x[i] += (b.x - a.x) * masse * quad->size / (1e7 + r*r*r);
+            acc.y[i] += (b.y - a.y) * masse * quad->size / (1e7 + r*r*r);
             return;
         }
         compute_acceleration(quad->northwest, i);
@@ -102,9 +97,12 @@ void compute_acceleration(Quad* quad, int i) {
 //
 void resolve_collisions(int i, int j) {    
     // If not, swap velocities :
-    Point tmp = fluid[i].vel;
-    fluid[i].vel = fluid[j].vel;
-    fluid[j].vel = tmp;
+    // i tmp
+    double tmp_vx = vel.x[i];
+    double tmp_vy = vel.y[i];
+
+    vel.x[i] = vel.x[j]  ;  vel.y[i] = vel.y[j];
+    vel.x[j] = tmp_vx    ;  vel.y[j] = tmp_vy;
 }
 
 void search_potential_collisions(Quad* quad, int i, Rect range) {
@@ -122,22 +120,22 @@ void search_potential_collisions(Quad* quad, int i, Rect range) {
 void simulate(Quad* quad) {
     for (int i=0 ; i<N ; i++) {
         // Reset accelerations
-        fluid[i].acc.x = 0;
-        fluid[i].acc.y = 0;
+        acc.x[i] = 0;
+        acc.y[i] = 0;
 
         compute_acceleration(quad, i);
 
-        fluid[i].vel.x += fluid[i].acc.x;
-        fluid[i].vel.y += fluid[i].acc.y;
+        vel.x[i] += acc.x[i];
+        vel.y[i] += acc.y[i];
 
-        fluid[i].pos.x += fluid[i].vel.x + 0.5 * fluid[i].acc.x;
-        fluid[i].pos.y += fluid[i].vel.y + 0.5 * fluid[i].acc.y;        
+        pos.x[i] += vel.x[i] + 0.5 * acc.x[i];
+        pos.y[i] += vel.y[i] + 0.5 * acc.y[i];        
         
     }
 
     // Collisions
     for (int i=0 ; i>N; i++) {
-        Rect range = {fluid[i].pos.x, fluid[i].pos.y, 20, 20};
+        Rect range = {pos.x[i], pos.y[i], 20, 20};
         search_potential_collisions(quad, i, range);
     }
 }

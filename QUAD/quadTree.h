@@ -66,7 +66,8 @@ void subdivide(Quad* quad) {
 
 void insertParticle(Quad* quad, int i) {
     // If point not in rect
-    if( !inRect(fluid[i].pos, quad->boundary) ) return ;
+    Point a = {pos.x[i],pos.y[i]};
+    if( !inRect(a, quad->boundary) ) return ;
 
     // 1 more point in that quad
     quad->size++;
@@ -146,7 +147,8 @@ Point centerOfMass(Quad* quad) {
     Point cm = {0,0};
     if (!quad->is_divided) {
         if (quad->size==0) return cm;
-        return fluid[quad->id].pos;
+        Point id = {pos.x[quad->id], pos.y[quad->id]};
+        return id;
     }
 
     cm = addPts(cm, centerOfMass(quad->northwest));

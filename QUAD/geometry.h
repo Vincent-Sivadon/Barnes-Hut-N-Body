@@ -39,7 +39,6 @@ bool intersect(Rect rect1, Rect rect2) {
 
 
 typedef struct {
-    Point pos;
-    Point vel;
-    Point acc;
-} Particle;
+    double* x;
+    double* y;
+} Field;
