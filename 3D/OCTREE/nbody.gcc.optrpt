@@ -1,0 +1,2100 @@
+geometry.h:12:41: note: Considering inline candidate newPt/50.
+geometry.h:12:41: optimized:  Inlining newPt/50 into addPts/53.
+geometry.h:13:43: note: Considering inline candidate newPt/50.
+geometry.h:13:43: optimized:  Inlining newPt/50 into scalePt/54.
+octree.h:51:45: note: Considering inline candidate newOctree/64.
+octree.h:51:45: missed:   will not early inline: subdivide/65->newOctree/64, growth 17 exceeds --param early-inlining-insns
+octree.h:51:45: note: Considering inline candidate newBox/55.
+octree.h:51:45: optimized:  Inlining newBox/55 into subdivide/65.
+octree.h:88:21: note: Considering inline candidate insertParticle/66.
+octree.h:88:21: missed:   Not inlining: recursive call.
+octree.h:81:13: note: Considering inline candidate insertParticle/66.
+octree.h:81:13: missed:   Not inlining: recursive call.
+octree.h:79:13: note: Considering inline candidate insertParticle/66.
+octree.h:79:13: missed:   Not inlining: recursive call.
+octree.h:76:13: note: Considering inline candidate subdivide/65.
+octree.h:76:13: missed:   will not early inline: insertParticle/66->subdivide/65, growth 41 exceeds --param early-inlining-insns
+octree.h:61:10: note: Considering inline candidate inBox/56.
+octree.h:61:10: optimized:  Inlining inBox/56 into insertParticle/66.
+simulation.h:84:21: note: Considering inline candidate compute_acceleration/69.
+simulation.h:84:21: missed:   Not inlining: recursive call.
+simulation.h:109:21: note: Considering inline candidate search_potential_collisions/71.
+simulation.h:109:21: missed:   Not inlining: recursive call.
+simulation.h:104:30: note: Considering inline candidate resolve_collisions/70.
+simulation.h:104:30: missed:   will not early inline: search_potential_collisions/71->resolve_collisions/70, growth 20 exceeds --param early-inlining-insns
+simulation.h:102:10: note: Considering inline candidate intersect/57.
+simulation.h:102:10: optimized:  Inlining intersect/57 into search_potential_collisions/71.
+simulation.h:139:9: note: Considering inline candidate search_potential_collisions/71.
+simulation.h:139:9: missed:   will not early inline: simulate/72->search_potential_collisions/71, growth 41 exceeds --param early-inlining-insns
+simulation.h:120:9: note: Considering inline candidate compute_acceleration/69.
+simulation.h:120:9: missed:   will not early inline: simulate/72->compute_acceleration/69, growth 122 exceeds --param early-inlining-insns
+main.c:60:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:59:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:52:9: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:26:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:44:9: note: Considering inline candidate deconstructTree/67.
+main.c:44:9: missed:   will not early inline: main/73->deconstructTree/67, growth 14 exceeds --param early-inlining-insns divided by number of calls
+main.c:42:9: note: Considering inline candidate simulate/72.
+main.c:42:9: missed:   will not early inline: main/73->simulate/72, growth 92 exceeds --param early-inlining-insns
+main.c:39:13: note: Considering inline candidate insertParticle/66.
+main.c:39:13: missed:   will not early inline: main/73->insertParticle/66, growth 64 exceeds --param early-inlining-insns
+main.c:36:9: note: Considering inline candidate subdivide/65.
+main.c:36:9: missed:   will not early inline: main/73->subdivide/65, growth 41 exceeds --param early-inlining-insns
+main.c:35:18: note: Considering inline candidate newOctree/64.
+main.c:35:18: missed:   will not early inline: main/73->newOctree/64, growth 17 exceeds --param early-inlining-insns
+main.c:21:20: note: Considering inline candidate newBox/55.
+main.c:21:20: optimized:  Inlining newBox/55 into main/73.
+main.c:19:5: note: Considering inline candidate init_system/68.
+main.c:19:5: missed:   will not early inline: main/73->init_system/68, growth 95 exceeds --param early-inlining-insns
+main.c:65:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:65:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:65:5: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:5: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:5: missed:   not inlinable: main/73 -> free/76, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:52:47: missed:   not inlinable: main/73 -> fflush/80, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:46:25: missed:   not inlinable: main/73 -> omp_get_wtime/81, function body not available
+main.c:42:9: missed:   not inlinable: main/73 -> simulate/72, --param max-inline-insns-auto limit reached
+main.c:39:13: missed:   not inlinable: main/73 -> insertParticle/66, --param max-inline-insns-auto limit reached
+main.c:36:9: missed:   not inlinable: main/73 -> subdivide/65, --param max-inline-insns-auto limit reached
+main.c:33:25: missed:   not inlinable: main/73 -> omp_get_wtime/81, function body not available
+main.c:26:62: missed:   not inlinable: main/73 -> fflush/80, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:19:5: missed:   not inlinable: main/73 -> init_system/68, --param max-inline-insns-auto limit reached
+main.c:17:5: missed:   not inlinable: main/73 -> srand/78, function body not available
+simulation.h:120:9: missed:   not inlinable: simulate/72 -> compute_acceleration/69, --param max-inline-insns-auto limit reached
+simulation.h:84:21: missed:   not inlinable: compute_acceleration/69 -> compute_acceleration/69, --param max-inline-insns-auto limit reached
+simulation.h:73:24: missed:   not inlinable: compute_acceleration/69 -> sqrt/74, function body not available
+simulation.h:57:20: missed:   not inlinable: compute_acceleration/69 -> sqrt/74, function body not available
+simulation.h:44:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:43:28: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:42:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:40:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:39:28: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:38:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:36:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:36:18: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:31:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:30:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:29:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:28:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:27:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:26:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:25:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:24:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:23:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+octree.h:100:5: missed:   not inlinable: deconstructTree/67 -> free/76, function body not available
+octree.h:98:21: missed:   not inlinable: deconstructTree/67 -> free/76, function body not available
+octree.h:88:21: missed:   not inlinable: insertParticle/66 -> insertParticle/66, --param max-inline-insns-auto limit reached
+octree.h:79:13: missed:   not inlinable: insertParticle/66 -> insertParticle/66, --param max-inline-insns-auto limit reached
+octree.h:76:13: missed:   not inlinable: insertParticle/66 -> subdivide/65, --param max-inline-insns-auto limit reached
+octree.h:22:22: missed:   not inlinable: newOctree/64 -> malloc/75, function body not available
+geometry.h:11:39: missed:   not inlinable: mod/52 -> sqrt/74, function body not available
+main.c:44:9: optimized:  Inlined deconstructTree/92 into main/73 which now has time 3298.181694 and size 112, net change of +14.
+octree.h:51:45: optimized:  Inlined newOctree/93 into subdivide/65 which now has time 946.589740 and size 67, net change of +17.
+main.c:35:18: optimized:  Inlined newOctree/94 into main/73 which now has time 4008.478920 and size 129, net change of +17.
+simulation.h:139:9: optimized:  Inlined search_potential_collisions/95 into simulate/72 which now has time 1116.686609 and size 138, net change of +41.
+simulation.h:104:30: optimized:  Inlined resolve_collisions/96 into search_potential_collisions/95 which now has time 52.215830 and size 60, net change of +20.
+simulation.h:104:30: optimized:  Inlined resolve_collisions/97 into search_potential_collisions/71 which now has time 52.694264 and size 80, net change of +20.
+Unit growth for small function inlining: 828->957 (15%)
+
+Inlined 16 calls, eliminated 0 functions
+
+geometry.h:9:106: note: ***** Re-trying analysis with vector size 16
+geometry.h:9:106: note: SLPing BB part
+geometry.h:9:106: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = p_2(D);
+geometry.h:9:106: note: vect_is_simple_use: operand p_2(D), type of def: external
+geometry.h:9:106: note: vect_is_simple_use: operand q_3(D), type of def: external
+geometry.h:9:106: note: transform store. ncopies = 1
+geometry.h:9:106: note: created new init_stmt: vect_cst__9 = _8;
+geometry.h:9:106: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:9:106: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:9:106: note: add new stmt: MEM[(struct Point *)&<retval>] = vect_cst__9;
+geometry.h:9:106: note: vectorizing stmts using SLP.
+geometry.h:9:106: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:9:106: note: basic block vectorized
+geometry.h:12:41: note: ***** Re-trying analysis with vector size 16
+geometry.h:12:41: note: SLPing BB part
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _7 = a.x;
+geometry.h:12:41: note: transform load. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: a.x
+geometry.h:12:41: note: created &a.x
+geometry.h:12:41: note: add new stmt: vect__7.131_14 = MEM[(double *)&a];
+geometry.h:12:41: note: add new stmt: _15 = &a.x + 8;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _8 = b.x;
+geometry.h:12:41: note: transform load. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: b.x
+geometry.h:12:41: note: created &b.x
+geometry.h:12:41: note: add new stmt: vect__8.134_16 = MEM[(double *)&b];
+geometry.h:12:41: note: add new stmt: _17 = &b.x + 8;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _9 = _7 + _8;
+geometry.h:12:41: note: vect_is_simple_use: operand a.x, type of def: internal
+geometry.h:12:41: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:12:41: note: vect_is_simple_use: operand b.x, type of def: internal
+geometry.h:12:41: note: transform binary/unary operation.
+geometry.h:12:41: note: add new stmt: vect__9.135_18 = vect__7.131_14 + vect__8.134_16;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = _9;
+geometry.h:12:41: note: vect_is_simple_use: operand _7 + _8, type of def: internal
+geometry.h:12:41: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:12:41: note: vect_is_simple_use: operand _4 + _5, type of def: internal
+geometry.h:12:41: note: transform store. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:12:41: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:12:41: note: add new stmt: MEM[(struct Point *)&<retval>] = vect__9.135_18;
+geometry.h:12:41: note: vectorizing stmts using SLP.
+geometry.h:12:41: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:12:41: note: basic block vectorized
+geometry.h:13:43: note: ***** Re-trying analysis with vector size 16
+geometry.h:13:43: note: SLPing BB part
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: _5 = a.x;
+geometry.h:13:43: note: transform load. ncopies = 1
+geometry.h:13:43: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: a.x
+geometry.h:13:43: note: created &a.x
+geometry.h:13:43: note: add new stmt: vect__5.142_12 = MEM[(double *)&a];
+geometry.h:13:43: note: add new stmt: _13 = &a.x + 8;
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: _6 = _5 * s_8(D);
+geometry.h:13:43: note: vect_is_simple_use: operand a.x, type of def: internal
+geometry.h:13:43: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:13:43: note: vect_is_simple_use: operand s_8(D), type of def: external
+geometry.h:13:43: note: transform binary/unary operation.
+geometry.h:13:43: note: created new init_stmt: vect_cst__15 = _14;
+geometry.h:13:43: note: add new stmt: vect__6.143_16 = vect__5.142_12 * vect_cst__15;
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = _6;
+geometry.h:13:43: note: vect_is_simple_use: operand _5 * s_8(D), type of def: internal
+geometry.h:13:43: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:13:43: note: vect_is_simple_use: operand _3 * s_8(D), type of def: internal
+geometry.h:13:43: note: transform store. ncopies = 1
+geometry.h:13:43: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:13:43: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:13:43: note: add new stmt: MEM[(struct Point *)&<retval>] = vect__6.143_16;
+geometry.h:13:43: note: vectorizing stmts using SLP.
+geometry.h:13:43: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:13:43: note: basic block vectorized
+geometry.h:23:12: note: SLPing BB part
+geometry.h:23:12: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&<retval>] = x_2(D);
+geometry.h:23:12: note: vect_is_simple_use: operand x_2(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand y_3(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand z_4(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand w_5(D), type of def: external
+geometry.h:23:12: note: transform store. ncopies = 1
+geometry.h:23:12: note: created new init_stmt: vect_cst__15 = _14;
+geometry.h:23:12: note: create vector_type-pointer variable to type: vector(4) double  vectorizing a pointer ref: MEM[(struct Box *)&<retval>]
+geometry.h:23:12: note: created &MEM[(struct Box *)&<retval>]
+geometry.h:23:12: note: add new stmt: MEM[(struct Box *)&<retval>] = vect_cst__15;
+geometry.h:23:12: note: vectorizing stmts using SLP.
+geometry.h:23:12: optimized: basic block part vectorized using 32 byte vectors
+geometry.h:23:12: note: basic block vectorized
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 178912237)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 89442698)
+octree.h:21:9: note: vectorized 0 loops in function.
+octree.h:22:22: missed: statement clobbers memory: octree_9 = malloc (128);
+octree.h:23:22: missed: not vectorized: more than one data ref in stmt: octree_9->boundary = boundary;
+octree.h:34:12: note: ***** Re-trying analysis with vector size 16
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count -1430652825)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 1431942424)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 715863801)
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:48:5: missed: couldn't vectorize loop
+octree.h:48:5: missed: not vectorized: multiple nested loops.
+octree.h:49:9: missed: couldn't vectorize loop
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:50:13: missed: couldn't vectorize loop
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:39:6: note: vectorized 0 loops in function.
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:50:13: optimized: loop with 1 iterations completely unrolled (header execution count 357878205)
+octree.h:22:22: missed: statement clobbers memory: octree_6 = malloc (128);
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:22:22: note: ***** Re-trying analysis with vector size 16
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:49:9: note: ***** Re-trying analysis with vector size 16
+octree.h:87:17: optimized: loop with 2 iterations completely unrolled (header execution count 291832262)
+octree.h:86:13: optimized: loop with 2 iterations completely unrolled (header execution count 145894245)
+octree.h:85:9: missed: couldn't vectorize loop
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+geometry.h:27:31: missed: couldn't vectorize loop
+geometry.h:27:31: missed: not vectorized: control flow in loop.
+octree.h:58:6: note: vectorized 0 loops in function.
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+octree.h:76:13: missed: statement clobbers memory: subdivide (octree_48(D));
+octree.h:76:13: missed: statement clobbers memory: subdivide (octree_48(D));
+octree.h:79:13: missed: statement clobbers memory: insertParticle (octree_48(D), tmp_35);
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_74, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_81, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_83, i_12(D));
+octree.h:97:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+octree.h:96:13: optimized: loop with 2 iterations completely unrolled (header execution count 178912237)
+octree.h:95:9: missed: couldn't vectorize loop
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:93:6: note: vectorized 0 loops in function.
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:95:9: optimized: loop with 1 iterations completely unrolled (header execution count 89442699)
+octree.h:98:21: missed: statement clobbers memory: free (_4);
+octree.h:98:21: missed: statement clobbers memory: free (_19);
+octree.h:98:21: missed: statement clobbers memory: free (_24);
+octree.h:98:21: missed: statement clobbers memory: free (_5);
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:98:21: missed: statement clobbers memory: free (_32);
+octree.h:98:21: missed: statement clobbers memory: free (_39);
+octree.h:98:21: missed: statement clobbers memory: free (_41);
+octree.h:100:5: missed: statement clobbers memory: free (octree_11(D));
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:35:5: missed: couldn't vectorize loop
+simulation.h:35:5: missed: not vectorized: control flow in loop.
+simulation.h:8:6: note: vectorized 0 loops in function.
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:23:13: missed: statement clobbers memory: _1 = malloc (131072);
+simulation.h:24:13: missed: statement clobbers memory: _2 = malloc (131072);
+simulation.h:25:13: missed: statement clobbers memory: _3 = malloc (131072);
+simulation.h:26:13: missed: statement clobbers memory: _4 = malloc (131072);
+simulation.h:27:13: missed: statement clobbers memory: _5 = malloc (131072);
+simulation.h:28:13: missed: statement clobbers memory: _6 = malloc (131072);
+simulation.h:29:13: missed: statement clobbers memory: _7 = malloc (131072);
+simulation.h:30:13: missed: statement clobbers memory: _8 = malloc (131072);
+simulation.h:31:13: missed: statement clobbers memory: _9 = malloc (131072);
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:36:35: missed: statement clobbers memory: r2_76 = rand ();
+simulation.h:38:35: missed: statement clobbers memory: _11 = rand ();
+simulation.h:39:28: missed: statement clobbers memory: _19 = rand ();
+simulation.h:40:35: missed: statement clobbers memory: _24 = rand ();
+simulation.h:42:35: missed: statement clobbers memory: _30 = rand ();
+simulation.h:43:28: missed: statement clobbers memory: _36 = rand ();
+simulation.h:44:35: missed: statement clobbers memory: _41 = rand ();
+simulation.h:83:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+simulation.h:82:13: optimized: loop with 2 iterations completely unrolled (header execution count 178912233)
+simulation.h:81:9: missed: couldn't vectorize loop
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:49:6: note: vectorized 0 loops in function.
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_140, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_147, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_149, i_109(D));
+simulation.h:108:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:106:9: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:107:13: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:101:6: note: vectorized 0 loops in function.
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:107:13: optimized: loop with 1 iterations completely unrolled (header execution count 178912234)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_95, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_41, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_98, i_16(D), range);
+simulation.h:108:17: optimized: loop with 2 iterations completely unrolled (header execution count 337652820)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:137:5: missed: couldn't vectorize loop
+simulation.h:137:5: missed: not vectorized: multiple nested loops.
+simulation.h:106:9: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:107:13: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:114:5: missed: couldn't vectorize loop
+simulation.h:114:5: missed: not vectorized: number of iterations cannot be computed.
+simulation.h:113:6: note: vectorized 0 loops in function.
+simulation.h:116:18: missed: failed: evolution of base is not affine.
+simulation.h:117:18: missed: failed: evolution of base is not affine.
+simulation.h:118:18: missed: failed: evolution of base is not affine.
+simulation.h:120:9: missed: statement clobbers memory: compute_acceleration (octree_78(D), i_131);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:107:13: optimized: loop with 1 iterations completely unrolled (header execution count 168801085)
+simulation.h:120:9: missed: statement clobbers memory: compute_acceleration (octree_78(D), i_131);
+geometry.h:35:8: note: ***** Re-trying analysis with vector size 16
+geometry.h:35:8: note: SLPing BB part
+geometry.h:35:8: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&range] = _59;
+geometry.h:35:8: note: vect_is_simple_use: operand *_58, type of def: external
+geometry.h:35:8: note: vect_is_simple_use: operand *_61, type of def: external
+geometry.h:35:8: note: transform store. ncopies = 1
+geometry.h:35:8: note: add new stmt: vect_cst__243 = _244;
+geometry.h:35:8: note: created new init_stmt: vect_cst__243 = _244;
+geometry.h:35:8: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Box *)&range]
+geometry.h:35:8: note: created &MEM[(struct Box *)&range]
+geometry.h:35:8: note: add new stmt: MEM[(struct Box *)&range] = vect_cst__243;
+geometry.h:35:8: note: vectorizing stmts using SLP.
+geometry.h:35:8: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&range + 32B] = 2.0e+1;
+geometry.h:35:8: note: vect_is_simple_use: operand 2.0e+1, type of def: constant
+geometry.h:35:8: note: vect_is_simple_use: operand 2.0e+1, type of def: constant
+geometry.h:35:8: note: transform store. ncopies = 1
+geometry.h:35:8: note: created new init_stmt: vect_cst__258 = { 2.0e+1, 2.0e+1 };
+geometry.h:35:8: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Box *)&range + 32B]
+geometry.h:35:8: note: created &MEM[(struct Box *)&range + 32B]
+geometry.h:35:8: note: add new stmt: MEM[(struct Box *)&range + 32B] = vect_cst__258;
+geometry.h:35:8: note: vectorizing stmts using SLP.
+geometry.h:35:8: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:35:8: note: basic block vectorized
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_248, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_246, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_176, i_162, range);
+octree.h:97:17: optimized: loop with 2 iterations completely unrolled (header execution count 236294126)
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count 472588243)
+octree.h:96:13: optimized: loop with 2 iterations completely unrolled (header execution count 118129339)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 236258675)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 118111618)
+main.c:30:5: missed: couldn't vectorize loop
+main.c:30:5: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+octree.h:95:9: missed: couldn't vectorize loop
+octree.h:98:21: missed: statement clobbers memory: free (_117);
+main.c:38:9: missed: couldn't vectorize loop
+main.c:38:9: missed: not vectorized: number of iterations cannot be computed.
+main.c:15:5: note: vectorized 0 loops in function.
+main.c:39:13: missed: statement clobbers memory: insertParticle (octree_66, i_86);
+octree.h:98:21: missed: statement clobbers memory: free (_117);
+octree.h:95:9: optimized: loop with 1 iterations completely unrolled (header execution count 59055810)
+main.c:17:5: missed: statement clobbers memory: srand (2);
+main.c:19:5: missed: statement clobbers memory: init_system ();
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "\x1b[1m%5s %10s\x1b[0m\n", "Step", "Time, s\n");
+main.c:26:62: missed: statement clobbers memory: fflush (stdout.20_1);
+main.c:33:25: missed: statement clobbers memory: before_43 = omp_get_wtime ();
+octree.h:22:22: missed: statement clobbers memory: octree_66 = malloc (128);
+main.c:36:9: missed: statement clobbers memory: subdivide (octree_66);
+main.c:36:9: note: SLPing BB part
+main.c:36:9: note: ------>vectorizing SLP node starting from: MEM[(struct Octree *)octree_66] = 5.0e-1;
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: transform store. ncopies = 1
+main.c:36:9: note: created new init_stmt: vect_cst__153 = { 5.0e-1, 5.0e-1, 5.0e-1, 5.0e-1 };
+main.c:36:9: note: create vector_type-pointer variable to type: vector(4) double  vectorizing a pointer ref: MEM[(struct Octree *)octree_66]
+main.c:36:9: note: created vectp.313_23
+main.c:36:9: note: add new stmt: MEM[(struct Octree *)vectp.313_23] = vect_cst__153;
+main.c:36:9: note: vectorizing stmts using SLP.
+main.c:36:9: note: ------>vectorizing SLP node starting from: octree_66->subtrees[0][0][0] = 0B;
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: transform store. ncopies = 1
+main.c:36:9: note: created new init_stmt: vect_cst__61 = { 0, 0, 0, 0 };
+main.c:36:9: note: created new init_stmt: vect_cst__60 = { 0, 0, 0, 0 };
+main.c:36:9: note: create vector_type-pointer variable to type: vector(4) long unsigned int  vectorizing a pointer ref: octree_66->subtrees[0][0][0]
+main.c:36:9: note: created vectp.315_146
+main.c:36:9: note: add new stmt: MEM[(struct Octree * *)vectp.315_146] = vect_cst__60;
+main.c:36:9: note: add new stmt: vectp.315_80 = vectp.315_146 + 32;
+main.c:36:9: note: add new stmt: MEM[(struct Octree * *)vectp.315_80] = vect_cst__61;
+main.c:36:9: note: vectorizing stmts using SLP.
+main.c:36:9: optimized: basic block part vectorized using 32 byte vectors
+main.c:38:9: note: basic block vectorized
+main.c:39:13: missed: statement clobbers memory: insertParticle (octree_66, i_86);
+main.c:42:9: missed: statement clobbers memory: simulate (octree_66);
+octree.h:98:21: missed: statement clobbers memory: free (_136);
+octree.h:98:21: missed: statement clobbers memory: free (_148);
+octree.h:98:21: missed: statement clobbers memory: free (_41);
+octree.h:98:21: missed: statement clobbers memory: free (_90);
+octree.h:98:21: missed: statement clobbers memory: free (_117);
+octree.h:98:21: missed: statement clobbers memory: free (_119);
+octree.h:98:21: missed: statement clobbers memory: free (_126);
+octree.h:98:21: missed: statement clobbers memory: free (_128);
+octree.h:100:5: missed: statement clobbers memory: free (octree_66);
+main.c:46:25: missed: statement clobbers memory: after_50 = omp_get_wtime ();
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "%d, %lf\n", n_68, _3);
+main.c:52:47: missed: statement clobbers memory: fflush (stdout.22_5);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "Overall time (s) : %lf\n", perf_115);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "Bandwith (GB/sec): %lf\n", bw_31);
+main.c:63:5: missed: statement clobbers memory: free (_13);
+main.c:63:19: missed: statement clobbers memory: free (_14);
+main.c:63:33: missed: statement clobbers memory: free (_15);
+main.c:64:5: missed: statement clobbers memory: free (_16);
+main.c:64:19: missed: statement clobbers memory: free (_17);
+main.c:64:33: missed: statement clobbers memory: free (_18);
+main.c:65:5: missed: statement clobbers memory: free (_19);
+main.c:65:19: missed: statement clobbers memory: free (_20);
+main.c:65:33: missed: statement clobbers memory: free (_21);
+geometry.h:12:41: note: Considering inline candidate newPt/50.
+geometry.h:12:41: optimized:  Inlining newPt/50 into addPts/53.
+geometry.h:13:43: note: Considering inline candidate newPt/50.
+geometry.h:13:43: optimized:  Inlining newPt/50 into scalePt/54.
+octree.h:51:45: note: Considering inline candidate newOctree/64.
+octree.h:51:45: missed:   will not early inline: subdivide/65->newOctree/64, growth 17 exceeds --param early-inlining-insns
+octree.h:51:45: note: Considering inline candidate newBox/55.
+octree.h:51:45: optimized:  Inlining newBox/55 into subdivide/65.
+octree.h:88:21: note: Considering inline candidate insertParticle/66.
+octree.h:88:21: missed:   Not inlining: recursive call.
+octree.h:81:13: note: Considering inline candidate insertParticle/66.
+octree.h:81:13: missed:   Not inlining: recursive call.
+octree.h:79:13: note: Considering inline candidate insertParticle/66.
+octree.h:79:13: missed:   Not inlining: recursive call.
+octree.h:76:13: note: Considering inline candidate subdivide/65.
+octree.h:76:13: missed:   will not early inline: insertParticle/66->subdivide/65, growth 41 exceeds --param early-inlining-insns
+octree.h:61:10: note: Considering inline candidate inBox/56.
+octree.h:61:10: optimized:  Inlining inBox/56 into insertParticle/66.
+simulation.h:84:21: note: Considering inline candidate compute_acceleration/69.
+simulation.h:84:21: missed:   Not inlining: recursive call.
+simulation.h:109:21: note: Considering inline candidate search_potential_collisions/71.
+simulation.h:109:21: missed:   Not inlining: recursive call.
+simulation.h:104:30: note: Considering inline candidate resolve_collisions/70.
+simulation.h:104:30: missed:   will not early inline: search_potential_collisions/71->resolve_collisions/70, growth 20 exceeds --param early-inlining-insns
+simulation.h:102:10: note: Considering inline candidate intersect/57.
+simulation.h:102:10: optimized:  Inlining intersect/57 into search_potential_collisions/71.
+simulation.h:139:9: note: Considering inline candidate search_potential_collisions/71.
+simulation.h:139:9: missed:   will not early inline: simulate/72->search_potential_collisions/71, growth 41 exceeds --param early-inlining-insns
+simulation.h:120:9: note: Considering inline candidate compute_acceleration/69.
+simulation.h:120:9: missed:   will not early inline: simulate/72->compute_acceleration/69, growth 122 exceeds --param early-inlining-insns
+main.c:60:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:59:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:52:9: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:26:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:44:9: note: Considering inline candidate deconstructTree/67.
+main.c:44:9: missed:   will not early inline: main/73->deconstructTree/67, growth 14 exceeds --param early-inlining-insns divided by number of calls
+main.c:42:9: note: Considering inline candidate simulate/72.
+main.c:42:9: missed:   will not early inline: main/73->simulate/72, growth 92 exceeds --param early-inlining-insns
+main.c:39:13: note: Considering inline candidate insertParticle/66.
+main.c:39:13: missed:   will not early inline: main/73->insertParticle/66, growth 64 exceeds --param early-inlining-insns
+main.c:36:9: note: Considering inline candidate subdivide/65.
+main.c:36:9: missed:   will not early inline: main/73->subdivide/65, growth 41 exceeds --param early-inlining-insns
+main.c:35:18: note: Considering inline candidate newOctree/64.
+main.c:35:18: missed:   will not early inline: main/73->newOctree/64, growth 17 exceeds --param early-inlining-insns
+main.c:21:20: note: Considering inline candidate newBox/55.
+main.c:21:20: optimized:  Inlining newBox/55 into main/73.
+main.c:19:5: note: Considering inline candidate init_system/68.
+main.c:19:5: missed:   will not early inline: main/73->init_system/68, growth 95 exceeds --param early-inlining-insns
+main.c:65:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:65:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:65:5: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:5: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:5: missed:   not inlinable: main/73 -> free/76, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:52:47: missed:   not inlinable: main/73 -> fflush/80, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:46:25: missed:   not inlinable: main/73 -> omp_get_wtime/81, function body not available
+main.c:42:9: missed:   not inlinable: main/73 -> simulate/72, --param max-inline-insns-auto limit reached
+main.c:39:13: missed:   not inlinable: main/73 -> insertParticle/66, --param max-inline-insns-auto limit reached
+main.c:36:9: missed:   not inlinable: main/73 -> subdivide/65, --param max-inline-insns-auto limit reached
+main.c:33:25: missed:   not inlinable: main/73 -> omp_get_wtime/81, function body not available
+main.c:26:62: missed:   not inlinable: main/73 -> fflush/80, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:19:5: missed:   not inlinable: main/73 -> init_system/68, --param max-inline-insns-auto limit reached
+main.c:17:5: missed:   not inlinable: main/73 -> srand/78, function body not available
+simulation.h:120:9: missed:   not inlinable: simulate/72 -> compute_acceleration/69, --param max-inline-insns-auto limit reached
+simulation.h:84:21: missed:   not inlinable: compute_acceleration/69 -> compute_acceleration/69, --param max-inline-insns-auto limit reached
+simulation.h:73:24: missed:   not inlinable: compute_acceleration/69 -> sqrt/74, function body not available
+simulation.h:57:20: missed:   not inlinable: compute_acceleration/69 -> sqrt/74, function body not available
+simulation.h:44:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:43:28: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:42:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:40:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:39:28: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:38:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:36:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:36:18: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:31:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:30:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:29:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:28:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:27:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:26:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:25:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:24:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:23:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+octree.h:100:5: missed:   not inlinable: deconstructTree/67 -> free/76, function body not available
+octree.h:98:21: missed:   not inlinable: deconstructTree/67 -> free/76, function body not available
+octree.h:88:21: missed:   not inlinable: insertParticle/66 -> insertParticle/66, --param max-inline-insns-auto limit reached
+octree.h:79:13: missed:   not inlinable: insertParticle/66 -> insertParticle/66, --param max-inline-insns-auto limit reached
+octree.h:76:13: missed:   not inlinable: insertParticle/66 -> subdivide/65, --param max-inline-insns-auto limit reached
+octree.h:22:22: missed:   not inlinable: newOctree/64 -> malloc/75, function body not available
+geometry.h:11:39: missed:   not inlinable: mod/52 -> sqrt/74, function body not available
+main.c:44:9: optimized:  Inlined deconstructTree/92 into main/73 which now has time 2716.053795 and size 112, net change of +14.
+octree.h:51:45: optimized:  Inlined newOctree/93 into subdivide/65 which now has time 946.589740 and size 67, net change of +17.
+main.c:35:18: optimized:  Inlined newOctree/94 into main/73 which now has time 3290.685604 and size 129, net change of +17.
+simulation.h:139:9: optimized:  Inlined search_potential_collisions/95 into simulate/72 which now has time 1116.686609 and size 138, net change of +41.
+simulation.h:104:30: optimized:  Inlined resolve_collisions/96 into search_potential_collisions/95 which now has time 52.215830 and size 60, net change of +20.
+simulation.h:104:30: optimized:  Inlined resolve_collisions/97 into search_potential_collisions/71 which now has time 52.694264 and size 80, net change of +20.
+Unit growth for small function inlining: 828->957 (15%)
+
+Inlined 16 calls, eliminated 0 functions
+
+geometry.h:9:106: note: ***** Re-trying analysis with vector size 16
+geometry.h:9:106: note: SLPing BB part
+geometry.h:9:106: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = p_2(D);
+geometry.h:9:106: note: vect_is_simple_use: operand p_2(D), type of def: external
+geometry.h:9:106: note: vect_is_simple_use: operand q_3(D), type of def: external
+geometry.h:9:106: note: transform store. ncopies = 1
+geometry.h:9:106: note: created new init_stmt: vect_cst__9 = _8;
+geometry.h:9:106: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:9:106: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:9:106: note: add new stmt: MEM[(struct Point *)&<retval>] = vect_cst__9;
+geometry.h:9:106: note: vectorizing stmts using SLP.
+geometry.h:9:106: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:9:106: note: basic block vectorized
+geometry.h:12:41: note: ***** Re-trying analysis with vector size 16
+geometry.h:12:41: note: SLPing BB part
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _7 = a.x;
+geometry.h:12:41: note: transform load. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: a.x
+geometry.h:12:41: note: created &a.x
+geometry.h:12:41: note: add new stmt: vect__7.132_14 = MEM[(double *)&a];
+geometry.h:12:41: note: add new stmt: _15 = &a.x + 8;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _8 = b.x;
+geometry.h:12:41: note: transform load. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: b.x
+geometry.h:12:41: note: created &b.x
+geometry.h:12:41: note: add new stmt: vect__8.135_16 = MEM[(double *)&b];
+geometry.h:12:41: note: add new stmt: _17 = &b.x + 8;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _9 = _7 + _8;
+geometry.h:12:41: note: vect_is_simple_use: operand a.x, type of def: internal
+geometry.h:12:41: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:12:41: note: vect_is_simple_use: operand b.x, type of def: internal
+geometry.h:12:41: note: transform binary/unary operation.
+geometry.h:12:41: note: add new stmt: vect__9.136_18 = vect__7.132_14 + vect__8.135_16;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = _9;
+geometry.h:12:41: note: vect_is_simple_use: operand _7 + _8, type of def: internal
+geometry.h:12:41: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:12:41: note: vect_is_simple_use: operand _4 + _5, type of def: internal
+geometry.h:12:41: note: transform store. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:12:41: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:12:41: note: add new stmt: MEM[(struct Point *)&<retval>] = vect__9.136_18;
+geometry.h:12:41: note: vectorizing stmts using SLP.
+geometry.h:12:41: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:12:41: note: basic block vectorized
+geometry.h:13:43: note: ***** Re-trying analysis with vector size 16
+geometry.h:13:43: note: SLPing BB part
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: _5 = a.x;
+geometry.h:13:43: note: transform load. ncopies = 1
+geometry.h:13:43: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: a.x
+geometry.h:13:43: note: created &a.x
+geometry.h:13:43: note: add new stmt: vect__5.143_12 = MEM[(double *)&a];
+geometry.h:13:43: note: add new stmt: _13 = &a.x + 8;
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: _6 = _5 * s_8(D);
+geometry.h:13:43: note: vect_is_simple_use: operand a.x, type of def: internal
+geometry.h:13:43: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:13:43: note: vect_is_simple_use: operand s_8(D), type of def: external
+geometry.h:13:43: note: transform binary/unary operation.
+geometry.h:13:43: note: created new init_stmt: vect_cst__15 = _14;
+geometry.h:13:43: note: add new stmt: vect__6.144_16 = vect__5.143_12 * vect_cst__15;
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = _6;
+geometry.h:13:43: note: vect_is_simple_use: operand _5 * s_8(D), type of def: internal
+geometry.h:13:43: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:13:43: note: vect_is_simple_use: operand _3 * s_8(D), type of def: internal
+geometry.h:13:43: note: transform store. ncopies = 1
+geometry.h:13:43: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:13:43: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:13:43: note: add new stmt: MEM[(struct Point *)&<retval>] = vect__6.144_16;
+geometry.h:13:43: note: vectorizing stmts using SLP.
+geometry.h:13:43: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:13:43: note: basic block vectorized
+geometry.h:23:12: note: SLPing BB part
+geometry.h:23:12: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&<retval>] = x_2(D);
+geometry.h:23:12: note: vect_is_simple_use: operand x_2(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand y_3(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand z_4(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand w_5(D), type of def: external
+geometry.h:23:12: note: transform store. ncopies = 1
+geometry.h:23:12: note: created new init_stmt: vect_cst__15 = _14;
+geometry.h:23:12: note: create vector_type-pointer variable to type: vector(4) double  vectorizing a pointer ref: MEM[(struct Box *)&<retval>]
+geometry.h:23:12: note: created &MEM[(struct Box *)&<retval>]
+geometry.h:23:12: note: add new stmt: MEM[(struct Box *)&<retval>] = vect_cst__15;
+geometry.h:23:12: note: vectorizing stmts using SLP.
+geometry.h:23:12: optimized: basic block part vectorized using 32 byte vectors
+geometry.h:23:12: note: basic block vectorized
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 178912237)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 89442698)
+octree.h:21:9: note: vectorized 0 loops in function.
+octree.h:22:22: missed: statement clobbers memory: octree_9 = malloc (128);
+octree.h:23:22: missed: not vectorized: more than one data ref in stmt: octree_9->boundary = boundary;
+octree.h:34:12: note: ***** Re-trying analysis with vector size 16
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count -1430652825)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 1431942424)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 715863801)
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:48:5: missed: couldn't vectorize loop
+octree.h:48:5: missed: not vectorized: multiple nested loops.
+octree.h:49:9: missed: couldn't vectorize loop
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:50:13: missed: couldn't vectorize loop
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:39:6: note: vectorized 0 loops in function.
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:50:13: optimized: loop with 1 iterations completely unrolled (header execution count 357878205)
+octree.h:22:22: missed: statement clobbers memory: octree_6 = malloc (128);
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:22:22: note: ***** Re-trying analysis with vector size 16
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:49:9: note: ***** Re-trying analysis with vector size 16
+octree.h:87:17: optimized: loop with 2 iterations completely unrolled (header execution count 291832262)
+octree.h:86:13: optimized: loop with 2 iterations completely unrolled (header execution count 145894245)
+octree.h:85:9: missed: couldn't vectorize loop
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+geometry.h:27:31: missed: couldn't vectorize loop
+geometry.h:27:31: missed: not vectorized: control flow in loop.
+octree.h:58:6: note: vectorized 0 loops in function.
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+octree.h:76:13: missed: statement clobbers memory: subdivide (octree_48(D));
+octree.h:76:13: missed: statement clobbers memory: subdivide (octree_48(D));
+octree.h:79:13: missed: statement clobbers memory: insertParticle (octree_48(D), tmp_35);
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_74, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_81, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_83, i_12(D));
+octree.h:97:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+octree.h:96:13: optimized: loop with 2 iterations completely unrolled (header execution count 178912237)
+octree.h:95:9: missed: couldn't vectorize loop
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:93:6: note: vectorized 0 loops in function.
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:95:9: optimized: loop with 1 iterations completely unrolled (header execution count 89442699)
+octree.h:98:21: missed: statement clobbers memory: free (_4);
+octree.h:98:21: missed: statement clobbers memory: free (_19);
+octree.h:98:21: missed: statement clobbers memory: free (_24);
+octree.h:98:21: missed: statement clobbers memory: free (_5);
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:98:21: missed: statement clobbers memory: free (_32);
+octree.h:98:21: missed: statement clobbers memory: free (_39);
+octree.h:98:21: missed: statement clobbers memory: free (_41);
+octree.h:100:5: missed: statement clobbers memory: free (octree_11(D));
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:35:5: missed: couldn't vectorize loop
+simulation.h:35:5: missed: not vectorized: control flow in loop.
+simulation.h:8:6: note: vectorized 0 loops in function.
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:23:13: missed: statement clobbers memory: _1 = malloc (131072);
+simulation.h:24:13: missed: statement clobbers memory: _2 = malloc (131072);
+simulation.h:25:13: missed: statement clobbers memory: _3 = malloc (131072);
+simulation.h:26:13: missed: statement clobbers memory: _4 = malloc (131072);
+simulation.h:27:13: missed: statement clobbers memory: _5 = malloc (131072);
+simulation.h:28:13: missed: statement clobbers memory: _6 = malloc (131072);
+simulation.h:29:13: missed: statement clobbers memory: _7 = malloc (131072);
+simulation.h:30:13: missed: statement clobbers memory: _8 = malloc (131072);
+simulation.h:31:13: missed: statement clobbers memory: _9 = malloc (131072);
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:36:35: missed: statement clobbers memory: r2_76 = rand ();
+simulation.h:38:35: missed: statement clobbers memory: _11 = rand ();
+simulation.h:39:28: missed: statement clobbers memory: _19 = rand ();
+simulation.h:40:35: missed: statement clobbers memory: _24 = rand ();
+simulation.h:42:35: missed: statement clobbers memory: _30 = rand ();
+simulation.h:43:28: missed: statement clobbers memory: _36 = rand ();
+simulation.h:44:35: missed: statement clobbers memory: _41 = rand ();
+simulation.h:83:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+simulation.h:82:13: optimized: loop with 2 iterations completely unrolled (header execution count 178912233)
+simulation.h:81:9: missed: couldn't vectorize loop
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:49:6: note: vectorized 0 loops in function.
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_140, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_147, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_149, i_109(D));
+simulation.h:108:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:106:9: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:107:13: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:101:6: note: vectorized 0 loops in function.
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:107:13: optimized: loop with 1 iterations completely unrolled (header execution count 178912234)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_95, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_41, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_98, i_16(D), range);
+simulation.h:108:17: optimized: loop with 2 iterations completely unrolled (header execution count 337652820)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:137:5: missed: couldn't vectorize loop
+simulation.h:137:5: missed: not vectorized: multiple nested loops.
+simulation.h:106:9: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:107:13: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:114:5: missed: couldn't vectorize loop
+simulation.h:114:5: missed: not vectorized: number of iterations cannot be computed.
+simulation.h:113:6: note: vectorized 0 loops in function.
+simulation.h:116:18: missed: failed: evolution of base is not affine.
+simulation.h:117:18: missed: failed: evolution of base is not affine.
+simulation.h:118:18: missed: failed: evolution of base is not affine.
+simulation.h:120:9: missed: statement clobbers memory: compute_acceleration (octree_78(D), i_131);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:107:13: optimized: loop with 1 iterations completely unrolled (header execution count 168801085)
+simulation.h:120:9: missed: statement clobbers memory: compute_acceleration (octree_78(D), i_131);
+geometry.h:35:8: note: ***** Re-trying analysis with vector size 16
+geometry.h:35:8: note: SLPing BB part
+geometry.h:35:8: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&range] = _59;
+geometry.h:35:8: note: vect_is_simple_use: operand *_58, type of def: external
+geometry.h:35:8: note: vect_is_simple_use: operand *_61, type of def: external
+geometry.h:35:8: note: transform store. ncopies = 1
+geometry.h:35:8: note: add new stmt: vect_cst__243 = _244;
+geometry.h:35:8: note: created new init_stmt: vect_cst__243 = _244;
+geometry.h:35:8: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Box *)&range]
+geometry.h:35:8: note: created &MEM[(struct Box *)&range]
+geometry.h:35:8: note: add new stmt: MEM[(struct Box *)&range] = vect_cst__243;
+geometry.h:35:8: note: vectorizing stmts using SLP.
+geometry.h:35:8: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&range + 32B] = 2.0e+1;
+geometry.h:35:8: note: vect_is_simple_use: operand 2.0e+1, type of def: constant
+geometry.h:35:8: note: vect_is_simple_use: operand 2.0e+1, type of def: constant
+geometry.h:35:8: note: transform store. ncopies = 1
+geometry.h:35:8: note: created new init_stmt: vect_cst__258 = { 2.0e+1, 2.0e+1 };
+geometry.h:35:8: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Box *)&range + 32B]
+geometry.h:35:8: note: created &MEM[(struct Box *)&range + 32B]
+geometry.h:35:8: note: add new stmt: MEM[(struct Box *)&range + 32B] = vect_cst__258;
+geometry.h:35:8: note: vectorizing stmts using SLP.
+geometry.h:35:8: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:35:8: note: basic block vectorized
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_248, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_246, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_176, i_162, range);
+octree.h:97:17: optimized: loop with 2 iterations completely unrolled (header execution count 236294107)
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count 472588206)
+octree.h:96:13: optimized: loop with 2 iterations completely unrolled (header execution count 118129330)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 236258656)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 118111611)
+main.c:30:5: missed: couldn't vectorize loop
+main.c:30:5: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+octree.h:95:9: missed: couldn't vectorize loop
+octree.h:98:21: missed: statement clobbers memory: free (_118);
+main.c:38:9: missed: couldn't vectorize loop
+main.c:38:9: missed: not vectorized: number of iterations cannot be computed.
+main.c:15:5: note: vectorized 0 loops in function.
+main.c:39:13: missed: statement clobbers memory: insertParticle (octree_67, i_158);
+octree.h:98:21: missed: statement clobbers memory: free (_118);
+octree.h:95:9: optimized: loop with 1 iterations completely unrolled (header execution count 59055806)
+main.c:17:5: missed: statement clobbers memory: srand (2);
+main.c:19:5: missed: statement clobbers memory: init_system ();
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "\x1b[1m%5s %10s\x1b[0m\n", "Step", "Time, s\n");
+main.c:26:62: missed: statement clobbers memory: fflush (stdout.20_1);
+main.c:33:25: missed: statement clobbers memory: before_44 = omp_get_wtime ();
+octree.h:22:22: missed: statement clobbers memory: octree_67 = malloc (128);
+main.c:36:9: missed: statement clobbers memory: subdivide (octree_67);
+main.c:36:9: note: SLPing BB part
+main.c:36:9: note: ------>vectorizing SLP node starting from: MEM[(struct Octree *)octree_67] = 5.0e-1;
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: transform store. ncopies = 1
+main.c:36:9: note: created new init_stmt: vect_cst__143 = { 5.0e-1, 5.0e-1, 5.0e-1, 5.0e-1 };
+main.c:36:9: note: create vector_type-pointer variable to type: vector(4) double  vectorizing a pointer ref: MEM[(struct Octree *)octree_67]
+main.c:36:9: note: created vectp.315_155
+main.c:36:9: note: add new stmt: MEM[(struct Octree *)vectp.315_155] = vect_cst__143;
+main.c:36:9: note: vectorizing stmts using SLP.
+main.c:36:9: note: ------>vectorizing SLP node starting from: octree_67->subtrees[0][0][0] = 0B;
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: transform store. ncopies = 1
+main.c:36:9: note: created new init_stmt: vect_cst__4 = { 0, 0, 0, 0 };
+main.c:36:9: note: created new init_stmt: vect_cst__96 = { 0, 0, 0, 0 };
+main.c:36:9: note: create vector_type-pointer variable to type: vector(4) long unsigned int  vectorizing a pointer ref: octree_67->subtrees[0][0][0]
+main.c:36:9: note: created vectp.317_137
+main.c:36:9: note: add new stmt: MEM[(struct Octree * *)vectp.317_137] = vect_cst__96;
+main.c:36:9: note: add new stmt: vectp.317_81 = vectp.317_137 + 32;
+main.c:36:9: note: add new stmt: MEM[(struct Octree * *)vectp.317_81] = vect_cst__4;
+main.c:36:9: note: vectorizing stmts using SLP.
+main.c:36:9: optimized: basic block part vectorized using 32 byte vectors
+main.c:38:9: note: basic block vectorized
+main.c:39:13: missed: statement clobbers memory: insertParticle (octree_67, i_158);
+main.c:42:9: missed: statement clobbers memory: simulate (octree_67);
+octree.h:98:21: missed: statement clobbers memory: free (_87);
+octree.h:98:21: missed: statement clobbers memory: free (_68);
+octree.h:98:21: missed: statement clobbers memory: free (_25);
+octree.h:98:21: missed: statement clobbers memory: free (_23);
+octree.h:98:21: missed: statement clobbers memory: free (_118);
+octree.h:98:21: missed: statement clobbers memory: free (_120);
+octree.h:98:21: missed: statement clobbers memory: free (_127);
+octree.h:98:21: missed: statement clobbers memory: free (_129);
+octree.h:100:5: missed: statement clobbers memory: free (octree_67);
+main.c:46:25: missed: statement clobbers memory: after_51 = omp_get_wtime ();
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "%d, %lf\n", n_149, _3);
+main.c:52:47: missed: statement clobbers memory: fflush (stdout.22_5);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "Overall time (s) : %lf\n", perf_157);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "Bandwith (GB/sec): %lf\n", bw_32);
+main.c:63:5: missed: statement clobbers memory: free (_14);
+main.c:63:19: missed: statement clobbers memory: free (_15);
+main.c:63:33: missed: statement clobbers memory: free (_16);
+main.c:64:5: missed: statement clobbers memory: free (_17);
+main.c:64:19: missed: statement clobbers memory: free (_18);
+main.c:64:33: missed: statement clobbers memory: free (_19);
+main.c:65:5: missed: statement clobbers memory: free (_20);
+main.c:65:19: missed: statement clobbers memory: free (_21);
+main.c:65:33: missed: statement clobbers memory: free (_22);
+geometry.h:12:41: note: Considering inline candidate newPt/50.
+geometry.h:12:41: optimized:  Inlining newPt/50 into addPts/53.
+geometry.h:13:43: note: Considering inline candidate newPt/50.
+geometry.h:13:43: optimized:  Inlining newPt/50 into scalePt/54.
+octree.h:51:45: note: Considering inline candidate newOctree/64.
+octree.h:51:45: missed:   will not early inline: subdivide/65->newOctree/64, growth 17 exceeds --param early-inlining-insns
+octree.h:51:45: note: Considering inline candidate newBox/55.
+octree.h:51:45: optimized:  Inlining newBox/55 into subdivide/65.
+octree.h:88:21: note: Considering inline candidate insertParticle/66.
+octree.h:88:21: missed:   Not inlining: recursive call.
+octree.h:81:13: note: Considering inline candidate insertParticle/66.
+octree.h:81:13: missed:   Not inlining: recursive call.
+octree.h:79:13: note: Considering inline candidate insertParticle/66.
+octree.h:79:13: missed:   Not inlining: recursive call.
+octree.h:76:13: note: Considering inline candidate subdivide/65.
+octree.h:76:13: missed:   will not early inline: insertParticle/66->subdivide/65, growth 41 exceeds --param early-inlining-insns
+octree.h:61:10: note: Considering inline candidate inBox/56.
+octree.h:61:10: optimized:  Inlining inBox/56 into insertParticle/66.
+simulation.h:84:21: note: Considering inline candidate compute_acceleration/69.
+simulation.h:84:21: missed:   Not inlining: recursive call.
+simulation.h:109:21: note: Considering inline candidate search_potential_collisions/71.
+simulation.h:109:21: missed:   Not inlining: recursive call.
+simulation.h:104:30: note: Considering inline candidate resolve_collisions/70.
+simulation.h:104:30: missed:   will not early inline: search_potential_collisions/71->resolve_collisions/70, growth 20 exceeds --param early-inlining-insns
+simulation.h:102:10: note: Considering inline candidate intersect/57.
+simulation.h:102:10: optimized:  Inlining intersect/57 into search_potential_collisions/71.
+simulation.h:139:9: note: Considering inline candidate search_potential_collisions/71.
+simulation.h:139:9: missed:   will not early inline: simulate/72->search_potential_collisions/71, growth 41 exceeds --param early-inlining-insns
+simulation.h:120:9: note: Considering inline candidate compute_acceleration/69.
+simulation.h:120:9: missed:   will not early inline: simulate/72->compute_acceleration/69, growth 122 exceeds --param early-inlining-insns
+main.c:60:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:59:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:52:9: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:26:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:44:9: note: Considering inline candidate deconstructTree/67.
+main.c:44:9: missed:   will not early inline: main/73->deconstructTree/67, growth 14 exceeds --param early-inlining-insns divided by number of calls
+main.c:42:9: note: Considering inline candidate simulate/72.
+main.c:42:9: missed:   will not early inline: main/73->simulate/72, growth 92 exceeds --param early-inlining-insns
+main.c:39:13: note: Considering inline candidate insertParticle/66.
+main.c:39:13: missed:   will not early inline: main/73->insertParticle/66, growth 64 exceeds --param early-inlining-insns
+main.c:36:9: note: Considering inline candidate subdivide/65.
+main.c:36:9: missed:   will not early inline: main/73->subdivide/65, growth 41 exceeds --param early-inlining-insns
+main.c:35:18: note: Considering inline candidate newOctree/64.
+main.c:35:18: missed:   will not early inline: main/73->newOctree/64, growth 17 exceeds --param early-inlining-insns
+main.c:21:20: note: Considering inline candidate newBox/55.
+main.c:21:20: optimized:  Inlining newBox/55 into main/73.
+main.c:19:5: note: Considering inline candidate init_system/68.
+main.c:19:5: missed:   will not early inline: main/73->init_system/68, growth 95 exceeds --param early-inlining-insns
+main.c:65:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:65:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:65:5: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:5: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:5: missed:   not inlinable: main/73 -> free/76, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:52:47: missed:   not inlinable: main/73 -> fflush/80, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:46:25: missed:   not inlinable: main/73 -> omp_get_wtime/81, function body not available
+main.c:42:9: missed:   not inlinable: main/73 -> simulate/72, --param max-inline-insns-auto limit reached
+main.c:39:13: missed:   not inlinable: main/73 -> insertParticle/66, --param max-inline-insns-auto limit reached
+main.c:36:9: missed:   not inlinable: main/73 -> subdivide/65, --param max-inline-insns-auto limit reached
+main.c:33:25: missed:   not inlinable: main/73 -> omp_get_wtime/81, function body not available
+main.c:26:62: missed:   not inlinable: main/73 -> fflush/80, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:19:5: missed:   not inlinable: main/73 -> init_system/68, --param max-inline-insns-auto limit reached
+main.c:17:5: missed:   not inlinable: main/73 -> srand/78, function body not available
+simulation.h:120:9: missed:   not inlinable: simulate/72 -> compute_acceleration/69, --param max-inline-insns-auto limit reached
+simulation.h:84:21: missed:   not inlinable: compute_acceleration/69 -> compute_acceleration/69, --param max-inline-insns-auto limit reached
+simulation.h:73:24: missed:   not inlinable: compute_acceleration/69 -> sqrt/74, function body not available
+simulation.h:57:20: missed:   not inlinable: compute_acceleration/69 -> sqrt/74, function body not available
+simulation.h:44:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:43:28: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:42:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:40:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:39:28: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:38:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:36:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:36:18: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:31:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:30:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:29:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:28:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:27:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:26:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:25:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:24:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:23:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+octree.h:100:5: missed:   not inlinable: deconstructTree/67 -> free/76, function body not available
+octree.h:98:21: missed:   not inlinable: deconstructTree/67 -> free/76, function body not available
+octree.h:88:21: missed:   not inlinable: insertParticle/66 -> insertParticle/66, --param max-inline-insns-auto limit reached
+octree.h:79:13: missed:   not inlinable: insertParticle/66 -> insertParticle/66, --param max-inline-insns-auto limit reached
+octree.h:76:13: missed:   not inlinable: insertParticle/66 -> subdivide/65, --param max-inline-insns-auto limit reached
+octree.h:22:22: missed:   not inlinable: newOctree/64 -> malloc/75, function body not available
+geometry.h:11:39: missed:   not inlinable: mod/52 -> sqrt/74, function body not available
+main.c:44:9: optimized:  Inlined deconstructTree/92 into main/73 which now has time 2716.053795 and size 112, net change of +14.
+octree.h:51:45: optimized:  Inlined newOctree/93 into subdivide/65 which now has time 946.589740 and size 67, net change of +17.
+main.c:35:18: optimized:  Inlined newOctree/94 into main/73 which now has time 3290.685604 and size 129, net change of +17.
+simulation.h:139:9: optimized:  Inlined search_potential_collisions/95 into simulate/72 which now has time 1116.686609 and size 138, net change of +41.
+simulation.h:104:30: optimized:  Inlined resolve_collisions/96 into search_potential_collisions/95 which now has time 52.215830 and size 60, net change of +20.
+simulation.h:104:30: optimized:  Inlined resolve_collisions/97 into search_potential_collisions/71 which now has time 52.694264 and size 80, net change of +20.
+Unit growth for small function inlining: 828->957 (15%)
+
+Inlined 16 calls, eliminated 0 functions
+
+geometry.h:9:106: note: ***** Re-trying analysis with vector size 16
+geometry.h:9:106: note: SLPing BB part
+geometry.h:9:106: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = p_2(D);
+geometry.h:9:106: note: vect_is_simple_use: operand p_2(D), type of def: external
+geometry.h:9:106: note: vect_is_simple_use: operand q_3(D), type of def: external
+geometry.h:9:106: note: transform store. ncopies = 1
+geometry.h:9:106: note: created new init_stmt: vect_cst__9 = _8;
+geometry.h:9:106: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:9:106: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:9:106: note: add new stmt: MEM[(struct Point *)&<retval>] = vect_cst__9;
+geometry.h:9:106: note: vectorizing stmts using SLP.
+geometry.h:9:106: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:9:106: note: basic block vectorized
+geometry.h:12:41: note: ***** Re-trying analysis with vector size 16
+geometry.h:12:41: note: SLPing BB part
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _7 = a.x;
+geometry.h:12:41: note: transform load. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: a.x
+geometry.h:12:41: note: created &a.x
+geometry.h:12:41: note: add new stmt: vect__7.132_14 = MEM[(double *)&a];
+geometry.h:12:41: note: add new stmt: _15 = &a.x + 8;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _8 = b.x;
+geometry.h:12:41: note: transform load. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: b.x
+geometry.h:12:41: note: created &b.x
+geometry.h:12:41: note: add new stmt: vect__8.135_16 = MEM[(double *)&b];
+geometry.h:12:41: note: add new stmt: _17 = &b.x + 8;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _9 = _7 + _8;
+geometry.h:12:41: note: vect_is_simple_use: operand a.x, type of def: internal
+geometry.h:12:41: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:12:41: note: vect_is_simple_use: operand b.x, type of def: internal
+geometry.h:12:41: note: transform binary/unary operation.
+geometry.h:12:41: note: add new stmt: vect__9.136_18 = vect__7.132_14 + vect__8.135_16;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = _9;
+geometry.h:12:41: note: vect_is_simple_use: operand _7 + _8, type of def: internal
+geometry.h:12:41: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:12:41: note: vect_is_simple_use: operand _4 + _5, type of def: internal
+geometry.h:12:41: note: transform store. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:12:41: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:12:41: note: add new stmt: MEM[(struct Point *)&<retval>] = vect__9.136_18;
+geometry.h:12:41: note: vectorizing stmts using SLP.
+geometry.h:12:41: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:12:41: note: basic block vectorized
+geometry.h:13:43: note: ***** Re-trying analysis with vector size 16
+geometry.h:13:43: note: SLPing BB part
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: _5 = a.x;
+geometry.h:13:43: note: transform load. ncopies = 1
+geometry.h:13:43: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: a.x
+geometry.h:13:43: note: created &a.x
+geometry.h:13:43: note: add new stmt: vect__5.143_12 = MEM[(double *)&a];
+geometry.h:13:43: note: add new stmt: _13 = &a.x + 8;
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: _6 = _5 * s_8(D);
+geometry.h:13:43: note: vect_is_simple_use: operand a.x, type of def: internal
+geometry.h:13:43: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:13:43: note: vect_is_simple_use: operand s_8(D), type of def: external
+geometry.h:13:43: note: transform binary/unary operation.
+geometry.h:13:43: note: created new init_stmt: vect_cst__15 = _14;
+geometry.h:13:43: note: add new stmt: vect__6.144_16 = vect__5.143_12 * vect_cst__15;
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = _6;
+geometry.h:13:43: note: vect_is_simple_use: operand _5 * s_8(D), type of def: internal
+geometry.h:13:43: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:13:43: note: vect_is_simple_use: operand _3 * s_8(D), type of def: internal
+geometry.h:13:43: note: transform store. ncopies = 1
+geometry.h:13:43: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:13:43: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:13:43: note: add new stmt: MEM[(struct Point *)&<retval>] = vect__6.144_16;
+geometry.h:13:43: note: vectorizing stmts using SLP.
+geometry.h:13:43: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:13:43: note: basic block vectorized
+geometry.h:23:12: note: SLPing BB part
+geometry.h:23:12: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&<retval>] = x_2(D);
+geometry.h:23:12: note: vect_is_simple_use: operand x_2(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand y_3(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand z_4(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand w_5(D), type of def: external
+geometry.h:23:12: note: transform store. ncopies = 1
+geometry.h:23:12: note: created new init_stmt: vect_cst__15 = _14;
+geometry.h:23:12: note: create vector_type-pointer variable to type: vector(4) double  vectorizing a pointer ref: MEM[(struct Box *)&<retval>]
+geometry.h:23:12: note: created &MEM[(struct Box *)&<retval>]
+geometry.h:23:12: note: add new stmt: MEM[(struct Box *)&<retval>] = vect_cst__15;
+geometry.h:23:12: note: vectorizing stmts using SLP.
+geometry.h:23:12: optimized: basic block part vectorized using 32 byte vectors
+geometry.h:23:12: note: basic block vectorized
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 178912237)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 89442698)
+octree.h:21:9: note: vectorized 0 loops in function.
+octree.h:22:22: missed: statement clobbers memory: octree_9 = malloc (128);
+octree.h:23:22: missed: not vectorized: more than one data ref in stmt: octree_9->boundary = boundary;
+octree.h:34:12: note: ***** Re-trying analysis with vector size 16
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count -1430652825)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 1431942424)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 715863801)
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:48:5: missed: couldn't vectorize loop
+octree.h:48:5: missed: not vectorized: multiple nested loops.
+octree.h:49:9: missed: couldn't vectorize loop
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:50:13: missed: couldn't vectorize loop
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:39:6: note: vectorized 0 loops in function.
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:50:13: optimized: loop with 1 iterations completely unrolled (header execution count 357878205)
+octree.h:22:22: missed: statement clobbers memory: octree_6 = malloc (128);
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:22:22: note: ***** Re-trying analysis with vector size 16
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:49:9: note: ***** Re-trying analysis with vector size 16
+octree.h:87:17: optimized: loop with 2 iterations completely unrolled (header execution count 291832262)
+octree.h:86:13: optimized: loop with 2 iterations completely unrolled (header execution count 145894245)
+octree.h:85:9: missed: couldn't vectorize loop
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+geometry.h:27:31: missed: couldn't vectorize loop
+geometry.h:27:31: missed: not vectorized: control flow in loop.
+octree.h:58:6: note: vectorized 0 loops in function.
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+octree.h:76:13: missed: statement clobbers memory: subdivide (octree_48(D));
+octree.h:76:13: missed: statement clobbers memory: subdivide (octree_48(D));
+octree.h:79:13: missed: statement clobbers memory: insertParticle (octree_48(D), tmp_35);
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_74, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_81, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_83, i_12(D));
+octree.h:97:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+octree.h:96:13: optimized: loop with 2 iterations completely unrolled (header execution count 178912237)
+octree.h:95:9: missed: couldn't vectorize loop
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:93:6: note: vectorized 0 loops in function.
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:95:9: optimized: loop with 1 iterations completely unrolled (header execution count 89442699)
+octree.h:98:21: missed: statement clobbers memory: free (_4);
+octree.h:98:21: missed: statement clobbers memory: free (_19);
+octree.h:98:21: missed: statement clobbers memory: free (_24);
+octree.h:98:21: missed: statement clobbers memory: free (_5);
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:98:21: missed: statement clobbers memory: free (_32);
+octree.h:98:21: missed: statement clobbers memory: free (_39);
+octree.h:98:21: missed: statement clobbers memory: free (_41);
+octree.h:100:5: missed: statement clobbers memory: free (octree_11(D));
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:35:5: missed: couldn't vectorize loop
+simulation.h:35:5: missed: not vectorized: control flow in loop.
+simulation.h:8:6: note: vectorized 0 loops in function.
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:23:13: missed: statement clobbers memory: _1 = malloc (131072);
+simulation.h:24:13: missed: statement clobbers memory: _2 = malloc (131072);
+simulation.h:25:13: missed: statement clobbers memory: _3 = malloc (131072);
+simulation.h:26:13: missed: statement clobbers memory: _4 = malloc (131072);
+simulation.h:27:13: missed: statement clobbers memory: _5 = malloc (131072);
+simulation.h:28:13: missed: statement clobbers memory: _6 = malloc (131072);
+simulation.h:29:13: missed: statement clobbers memory: _7 = malloc (131072);
+simulation.h:30:13: missed: statement clobbers memory: _8 = malloc (131072);
+simulation.h:31:13: missed: statement clobbers memory: _9 = malloc (131072);
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:36:35: missed: statement clobbers memory: r2_76 = rand ();
+simulation.h:38:35: missed: statement clobbers memory: _11 = rand ();
+simulation.h:39:28: missed: statement clobbers memory: _19 = rand ();
+simulation.h:40:35: missed: statement clobbers memory: _24 = rand ();
+simulation.h:42:35: missed: statement clobbers memory: _30 = rand ();
+simulation.h:43:28: missed: statement clobbers memory: _36 = rand ();
+simulation.h:44:35: missed: statement clobbers memory: _41 = rand ();
+simulation.h:83:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+simulation.h:82:13: optimized: loop with 2 iterations completely unrolled (header execution count 178912233)
+simulation.h:81:9: missed: couldn't vectorize loop
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:49:6: note: vectorized 0 loops in function.
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_140, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_147, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_149, i_109(D));
+simulation.h:108:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:106:9: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:107:13: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:101:6: note: vectorized 0 loops in function.
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:107:13: optimized: loop with 1 iterations completely unrolled (header execution count 178912234)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_95, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_41, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_98, i_16(D), range);
+simulation.h:108:17: optimized: loop with 2 iterations completely unrolled (header execution count 337652820)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:137:5: missed: couldn't vectorize loop
+simulation.h:137:5: missed: not vectorized: multiple nested loops.
+simulation.h:106:9: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:107:13: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:114:5: missed: couldn't vectorize loop
+simulation.h:114:5: missed: not vectorized: number of iterations cannot be computed.
+simulation.h:113:6: note: vectorized 0 loops in function.
+simulation.h:116:18: missed: failed: evolution of base is not affine.
+simulation.h:117:18: missed: failed: evolution of base is not affine.
+simulation.h:118:18: missed: failed: evolution of base is not affine.
+simulation.h:120:9: missed: statement clobbers memory: compute_acceleration (octree_78(D), i_131);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:107:13: optimized: loop with 1 iterations completely unrolled (header execution count 168801085)
+simulation.h:120:9: missed: statement clobbers memory: compute_acceleration (octree_78(D), i_131);
+geometry.h:35:8: note: ***** Re-trying analysis with vector size 16
+geometry.h:35:8: note: SLPing BB part
+geometry.h:35:8: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&range] = _59;
+geometry.h:35:8: note: vect_is_simple_use: operand *_58, type of def: external
+geometry.h:35:8: note: vect_is_simple_use: operand *_61, type of def: external
+geometry.h:35:8: note: transform store. ncopies = 1
+geometry.h:35:8: note: add new stmt: vect_cst__243 = _244;
+geometry.h:35:8: note: created new init_stmt: vect_cst__243 = _244;
+geometry.h:35:8: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Box *)&range]
+geometry.h:35:8: note: created &MEM[(struct Box *)&range]
+geometry.h:35:8: note: add new stmt: MEM[(struct Box *)&range] = vect_cst__243;
+geometry.h:35:8: note: vectorizing stmts using SLP.
+geometry.h:35:8: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&range + 32B] = 2.0e+1;
+geometry.h:35:8: note: vect_is_simple_use: operand 2.0e+1, type of def: constant
+geometry.h:35:8: note: vect_is_simple_use: operand 2.0e+1, type of def: constant
+geometry.h:35:8: note: transform store. ncopies = 1
+geometry.h:35:8: note: created new init_stmt: vect_cst__258 = { 2.0e+1, 2.0e+1 };
+geometry.h:35:8: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Box *)&range + 32B]
+geometry.h:35:8: note: created &MEM[(struct Box *)&range + 32B]
+geometry.h:35:8: note: add new stmt: MEM[(struct Box *)&range + 32B] = vect_cst__258;
+geometry.h:35:8: note: vectorizing stmts using SLP.
+geometry.h:35:8: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:35:8: note: basic block vectorized
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_248, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_246, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_176, i_162, range);
+octree.h:97:17: optimized: loop with 2 iterations completely unrolled (header execution count 236294107)
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count 472588206)
+octree.h:96:13: optimized: loop with 2 iterations completely unrolled (header execution count 118129330)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 236258656)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 118111611)
+main.c:30:5: missed: couldn't vectorize loop
+main.c:30:5: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+octree.h:95:9: missed: couldn't vectorize loop
+octree.h:98:21: missed: statement clobbers memory: free (_118);
+main.c:38:9: missed: couldn't vectorize loop
+main.c:38:9: missed: not vectorized: number of iterations cannot be computed.
+main.c:15:5: note: vectorized 0 loops in function.
+main.c:39:13: missed: statement clobbers memory: insertParticle (octree_67, i_158);
+octree.h:98:21: missed: statement clobbers memory: free (_118);
+octree.h:95:9: optimized: loop with 1 iterations completely unrolled (header execution count 59055806)
+main.c:17:5: missed: statement clobbers memory: srand (2);
+main.c:19:5: missed: statement clobbers memory: init_system ();
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "\x1b[1m%5s %10s\x1b[0m\n", "Step", "Time, s\n");
+main.c:26:62: missed: statement clobbers memory: fflush (stdout.20_1);
+main.c:33:25: missed: statement clobbers memory: before_44 = omp_get_wtime ();
+octree.h:22:22: missed: statement clobbers memory: octree_67 = malloc (128);
+main.c:36:9: missed: statement clobbers memory: subdivide (octree_67);
+main.c:36:9: note: SLPing BB part
+main.c:36:9: note: ------>vectorizing SLP node starting from: MEM[(struct Octree *)octree_67] = 5.0e-1;
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: transform store. ncopies = 1
+main.c:36:9: note: created new init_stmt: vect_cst__143 = { 5.0e-1, 5.0e-1, 5.0e-1, 5.0e-1 };
+main.c:36:9: note: create vector_type-pointer variable to type: vector(4) double  vectorizing a pointer ref: MEM[(struct Octree *)octree_67]
+main.c:36:9: note: created vectp.315_155
+main.c:36:9: note: add new stmt: MEM[(struct Octree *)vectp.315_155] = vect_cst__143;
+main.c:36:9: note: vectorizing stmts using SLP.
+main.c:36:9: note: ------>vectorizing SLP node starting from: octree_67->subtrees[0][0][0] = 0B;
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: transform store. ncopies = 1
+main.c:36:9: note: created new init_stmt: vect_cst__4 = { 0, 0, 0, 0 };
+main.c:36:9: note: created new init_stmt: vect_cst__96 = { 0, 0, 0, 0 };
+main.c:36:9: note: create vector_type-pointer variable to type: vector(4) long unsigned int  vectorizing a pointer ref: octree_67->subtrees[0][0][0]
+main.c:36:9: note: created vectp.317_137
+main.c:36:9: note: add new stmt: MEM[(struct Octree * *)vectp.317_137] = vect_cst__96;
+main.c:36:9: note: add new stmt: vectp.317_81 = vectp.317_137 + 32;
+main.c:36:9: note: add new stmt: MEM[(struct Octree * *)vectp.317_81] = vect_cst__4;
+main.c:36:9: note: vectorizing stmts using SLP.
+main.c:36:9: optimized: basic block part vectorized using 32 byte vectors
+main.c:38:9: note: basic block vectorized
+main.c:39:13: missed: statement clobbers memory: insertParticle (octree_67, i_158);
+main.c:42:9: missed: statement clobbers memory: simulate (octree_67);
+octree.h:98:21: missed: statement clobbers memory: free (_87);
+octree.h:98:21: missed: statement clobbers memory: free (_68);
+octree.h:98:21: missed: statement clobbers memory: free (_25);
+octree.h:98:21: missed: statement clobbers memory: free (_23);
+octree.h:98:21: missed: statement clobbers memory: free (_118);
+octree.h:98:21: missed: statement clobbers memory: free (_120);
+octree.h:98:21: missed: statement clobbers memory: free (_127);
+octree.h:98:21: missed: statement clobbers memory: free (_129);
+octree.h:100:5: missed: statement clobbers memory: free (octree_67);
+main.c:46:25: missed: statement clobbers memory: after_51 = omp_get_wtime ();
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "%d, %lf\n", n_149, _3);
+main.c:52:47: missed: statement clobbers memory: fflush (stdout.22_5);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "Overall time (s) : %lf\n", perf_157);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "Bandwith (GB/sec): %lf\n", bw_32);
+main.c:63:5: missed: statement clobbers memory: free (_14);
+main.c:63:19: missed: statement clobbers memory: free (_15);
+main.c:63:33: missed: statement clobbers memory: free (_16);
+main.c:64:5: missed: statement clobbers memory: free (_17);
+main.c:64:19: missed: statement clobbers memory: free (_18);
+main.c:64:33: missed: statement clobbers memory: free (_19);
+main.c:65:5: missed: statement clobbers memory: free (_20);
+main.c:65:19: missed: statement clobbers memory: free (_21);
+main.c:65:33: missed: statement clobbers memory: free (_22);
+geometry.h:12:41: note: Considering inline candidate newPt/50.
+geometry.h:12:41: optimized:  Inlining newPt/50 into addPts/53.
+geometry.h:13:43: note: Considering inline candidate newPt/50.
+geometry.h:13:43: optimized:  Inlining newPt/50 into scalePt/54.
+octree.h:51:45: note: Considering inline candidate newOctree/64.
+octree.h:51:45: missed:   will not early inline: subdivide/65->newOctree/64, growth 17 exceeds --param early-inlining-insns
+octree.h:51:45: note: Considering inline candidate newBox/55.
+octree.h:51:45: optimized:  Inlining newBox/55 into subdivide/65.
+octree.h:88:21: note: Considering inline candidate insertParticle/66.
+octree.h:88:21: missed:   Not inlining: recursive call.
+octree.h:81:13: note: Considering inline candidate insertParticle/66.
+octree.h:81:13: missed:   Not inlining: recursive call.
+octree.h:79:13: note: Considering inline candidate insertParticle/66.
+octree.h:79:13: missed:   Not inlining: recursive call.
+octree.h:76:13: note: Considering inline candidate subdivide/65.
+octree.h:76:13: missed:   will not early inline: insertParticle/66->subdivide/65, growth 41 exceeds --param early-inlining-insns
+octree.h:61:10: note: Considering inline candidate inBox/56.
+octree.h:61:10: optimized:  Inlining inBox/56 into insertParticle/66.
+simulation.h:84:21: note: Considering inline candidate compute_acceleration/69.
+simulation.h:84:21: missed:   Not inlining: recursive call.
+simulation.h:109:21: note: Considering inline candidate search_potential_collisions/71.
+simulation.h:109:21: missed:   Not inlining: recursive call.
+simulation.h:104:30: note: Considering inline candidate resolve_collisions/70.
+simulation.h:104:30: missed:   will not early inline: search_potential_collisions/71->resolve_collisions/70, growth 20 exceeds --param early-inlining-insns
+simulation.h:102:10: note: Considering inline candidate intersect/57.
+simulation.h:102:10: optimized:  Inlining intersect/57 into search_potential_collisions/71.
+simulation.h:139:9: note: Considering inline candidate search_potential_collisions/71.
+simulation.h:139:9: missed:   will not early inline: simulate/72->search_potential_collisions/71, growth 41 exceeds --param early-inlining-insns
+simulation.h:120:9: note: Considering inline candidate compute_acceleration/69.
+simulation.h:120:9: missed:   will not early inline: simulate/72->compute_acceleration/69, growth 122 exceeds --param early-inlining-insns
+main.c:60:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:59:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:52:9: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:26:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:44:9: note: Considering inline candidate deconstructTree/67.
+main.c:44:9: missed:   will not early inline: main/73->deconstructTree/67, growth 14 exceeds --param early-inlining-insns divided by number of calls
+main.c:42:9: note: Considering inline candidate simulate/72.
+main.c:42:9: missed:   will not early inline: main/73->simulate/72, growth 92 exceeds --param early-inlining-insns
+main.c:39:13: note: Considering inline candidate insertParticle/66.
+main.c:39:13: missed:   will not early inline: main/73->insertParticle/66, growth 64 exceeds --param early-inlining-insns
+main.c:36:9: note: Considering inline candidate subdivide/65.
+main.c:36:9: missed:   will not early inline: main/73->subdivide/65, growth 41 exceeds --param early-inlining-insns
+main.c:35:18: note: Considering inline candidate newOctree/64.
+main.c:35:18: missed:   will not early inline: main/73->newOctree/64, growth 17 exceeds --param early-inlining-insns
+main.c:21:20: note: Considering inline candidate newBox/55.
+main.c:21:20: optimized:  Inlining newBox/55 into main/73.
+main.c:19:5: note: Considering inline candidate init_system/68.
+main.c:19:5: missed:   will not early inline: main/73->init_system/68, growth 95 exceeds --param early-inlining-insns
+main.c:65:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:65:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:65:5: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:5: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:5: missed:   not inlinable: main/73 -> free/76, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:52:47: missed:   not inlinable: main/73 -> fflush/80, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:46:25: missed:   not inlinable: main/73 -> omp_get_wtime/81, function body not available
+main.c:42:9: missed:   not inlinable: main/73 -> simulate/72, --param max-inline-insns-auto limit reached
+main.c:39:13: missed:   not inlinable: main/73 -> insertParticle/66, --param max-inline-insns-auto limit reached
+main.c:36:9: missed:   not inlinable: main/73 -> subdivide/65, --param max-inline-insns-auto limit reached
+main.c:33:25: missed:   not inlinable: main/73 -> omp_get_wtime/81, function body not available
+main.c:26:62: missed:   not inlinable: main/73 -> fflush/80, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:19:5: missed:   not inlinable: main/73 -> init_system/68, --param max-inline-insns-auto limit reached
+main.c:17:5: missed:   not inlinable: main/73 -> srand/78, function body not available
+simulation.h:120:9: missed:   not inlinable: simulate/72 -> compute_acceleration/69, --param max-inline-insns-auto limit reached
+simulation.h:84:21: missed:   not inlinable: compute_acceleration/69 -> compute_acceleration/69, --param max-inline-insns-auto limit reached
+simulation.h:73:24: missed:   not inlinable: compute_acceleration/69 -> sqrt/74, function body not available
+simulation.h:57:20: missed:   not inlinable: compute_acceleration/69 -> sqrt/74, function body not available
+simulation.h:44:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:43:28: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:42:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:40:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:39:28: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:38:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:36:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:36:18: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:31:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:30:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:29:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:28:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:27:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:26:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:25:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:24:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:23:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+octree.h:100:5: missed:   not inlinable: deconstructTree/67 -> free/76, function body not available
+octree.h:98:21: missed:   not inlinable: deconstructTree/67 -> free/76, function body not available
+octree.h:88:21: missed:   not inlinable: insertParticle/66 -> insertParticle/66, --param max-inline-insns-auto limit reached
+octree.h:79:13: missed:   not inlinable: insertParticle/66 -> insertParticle/66, --param max-inline-insns-auto limit reached
+octree.h:76:13: missed:   not inlinable: insertParticle/66 -> subdivide/65, --param max-inline-insns-auto limit reached
+octree.h:22:22: missed:   not inlinable: newOctree/64 -> malloc/75, function body not available
+geometry.h:11:39: missed:   not inlinable: mod/52 -> sqrt/74, function body not available
+main.c:44:9: optimized:  Inlined deconstructTree/92 into main/73 which now has time 2716.053795 and size 112, net change of +14.
+octree.h:51:45: optimized:  Inlined newOctree/93 into subdivide/65 which now has time 946.589740 and size 67, net change of +17.
+main.c:35:18: optimized:  Inlined newOctree/94 into main/73 which now has time 3290.685604 and size 129, net change of +17.
+simulation.h:139:9: optimized:  Inlined search_potential_collisions/95 into simulate/72 which now has time 1116.686609 and size 138, net change of +41.
+simulation.h:104:30: optimized:  Inlined resolve_collisions/96 into search_potential_collisions/95 which now has time 52.215830 and size 60, net change of +20.
+simulation.h:104:30: optimized:  Inlined resolve_collisions/97 into search_potential_collisions/71 which now has time 52.694264 and size 80, net change of +20.
+Unit growth for small function inlining: 828->957 (15%)
+
+Inlined 16 calls, eliminated 0 functions
+
+geometry.h:9:106: note: ***** Re-trying analysis with vector size 16
+geometry.h:9:106: note: SLPing BB part
+geometry.h:9:106: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = p_2(D);
+geometry.h:9:106: note: vect_is_simple_use: operand p_2(D), type of def: external
+geometry.h:9:106: note: vect_is_simple_use: operand q_3(D), type of def: external
+geometry.h:9:106: note: transform store. ncopies = 1
+geometry.h:9:106: note: created new init_stmt: vect_cst__9 = _8;
+geometry.h:9:106: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:9:106: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:9:106: note: add new stmt: MEM[(struct Point *)&<retval>] = vect_cst__9;
+geometry.h:9:106: note: vectorizing stmts using SLP.
+geometry.h:9:106: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:9:106: note: basic block vectorized
+geometry.h:12:41: note: ***** Re-trying analysis with vector size 16
+geometry.h:12:41: note: SLPing BB part
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _7 = a.x;
+geometry.h:12:41: note: transform load. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: a.x
+geometry.h:12:41: note: created &a.x
+geometry.h:12:41: note: add new stmt: vect__7.132_14 = MEM[(double *)&a];
+geometry.h:12:41: note: add new stmt: _15 = &a.x + 8;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _8 = b.x;
+geometry.h:12:41: note: transform load. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: b.x
+geometry.h:12:41: note: created &b.x
+geometry.h:12:41: note: add new stmt: vect__8.135_16 = MEM[(double *)&b];
+geometry.h:12:41: note: add new stmt: _17 = &b.x + 8;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _9 = _7 + _8;
+geometry.h:12:41: note: vect_is_simple_use: operand a.x, type of def: internal
+geometry.h:12:41: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:12:41: note: vect_is_simple_use: operand b.x, type of def: internal
+geometry.h:12:41: note: transform binary/unary operation.
+geometry.h:12:41: note: add new stmt: vect__9.136_18 = vect__7.132_14 + vect__8.135_16;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = _9;
+geometry.h:12:41: note: vect_is_simple_use: operand _7 + _8, type of def: internal
+geometry.h:12:41: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:12:41: note: vect_is_simple_use: operand _4 + _5, type of def: internal
+geometry.h:12:41: note: transform store. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:12:41: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:12:41: note: add new stmt: MEM[(struct Point *)&<retval>] = vect__9.136_18;
+geometry.h:12:41: note: vectorizing stmts using SLP.
+geometry.h:12:41: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:12:41: note: basic block vectorized
+geometry.h:13:43: note: ***** Re-trying analysis with vector size 16
+geometry.h:13:43: note: SLPing BB part
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: _5 = a.x;
+geometry.h:13:43: note: transform load. ncopies = 1
+geometry.h:13:43: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: a.x
+geometry.h:13:43: note: created &a.x
+geometry.h:13:43: note: add new stmt: vect__5.143_12 = MEM[(double *)&a];
+geometry.h:13:43: note: add new stmt: _13 = &a.x + 8;
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: _6 = _5 * s_8(D);
+geometry.h:13:43: note: vect_is_simple_use: operand a.x, type of def: internal
+geometry.h:13:43: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:13:43: note: vect_is_simple_use: operand s_8(D), type of def: external
+geometry.h:13:43: note: transform binary/unary operation.
+geometry.h:13:43: note: created new init_stmt: vect_cst__15 = _14;
+geometry.h:13:43: note: add new stmt: vect__6.144_16 = vect__5.143_12 * vect_cst__15;
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = _6;
+geometry.h:13:43: note: vect_is_simple_use: operand _5 * s_8(D), type of def: internal
+geometry.h:13:43: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:13:43: note: vect_is_simple_use: operand _3 * s_8(D), type of def: internal
+geometry.h:13:43: note: transform store. ncopies = 1
+geometry.h:13:43: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:13:43: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:13:43: note: add new stmt: MEM[(struct Point *)&<retval>] = vect__6.144_16;
+geometry.h:13:43: note: vectorizing stmts using SLP.
+geometry.h:13:43: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:13:43: note: basic block vectorized
+geometry.h:23:12: note: SLPing BB part
+geometry.h:23:12: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&<retval>] = x_2(D);
+geometry.h:23:12: note: vect_is_simple_use: operand x_2(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand y_3(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand z_4(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand w_5(D), type of def: external
+geometry.h:23:12: note: transform store. ncopies = 1
+geometry.h:23:12: note: created new init_stmt: vect_cst__15 = _14;
+geometry.h:23:12: note: create vector_type-pointer variable to type: vector(4) double  vectorizing a pointer ref: MEM[(struct Box *)&<retval>]
+geometry.h:23:12: note: created &MEM[(struct Box *)&<retval>]
+geometry.h:23:12: note: add new stmt: MEM[(struct Box *)&<retval>] = vect_cst__15;
+geometry.h:23:12: note: vectorizing stmts using SLP.
+geometry.h:23:12: optimized: basic block part vectorized using 32 byte vectors
+geometry.h:23:12: note: basic block vectorized
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 178912237)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 89442698)
+octree.h:21:9: note: vectorized 0 loops in function.
+octree.h:22:22: missed: statement clobbers memory: octree_9 = malloc (128);
+octree.h:23:22: missed: not vectorized: more than one data ref in stmt: octree_9->boundary = boundary;
+octree.h:34:12: note: ***** Re-trying analysis with vector size 16
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count -1430652825)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 1431942424)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 715863801)
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:48:5: missed: couldn't vectorize loop
+octree.h:48:5: missed: not vectorized: multiple nested loops.
+octree.h:49:9: missed: couldn't vectorize loop
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:50:13: missed: couldn't vectorize loop
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:39:6: note: vectorized 0 loops in function.
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:50:13: optimized: loop with 1 iterations completely unrolled (header execution count 357878205)
+octree.h:22:22: missed: statement clobbers memory: octree_6 = malloc (128);
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:22:22: note: ***** Re-trying analysis with vector size 16
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:49:9: note: ***** Re-trying analysis with vector size 16
+octree.h:87:17: optimized: loop with 2 iterations completely unrolled (header execution count 291832262)
+octree.h:86:13: optimized: loop with 2 iterations completely unrolled (header execution count 145894245)
+octree.h:85:9: missed: couldn't vectorize loop
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+geometry.h:27:31: missed: couldn't vectorize loop
+geometry.h:27:31: missed: not vectorized: control flow in loop.
+octree.h:58:6: note: vectorized 0 loops in function.
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+octree.h:76:13: missed: statement clobbers memory: subdivide (octree_48(D));
+octree.h:76:13: missed: statement clobbers memory: subdivide (octree_48(D));
+octree.h:79:13: missed: statement clobbers memory: insertParticle (octree_48(D), tmp_35);
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_74, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_81, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_83, i_12(D));
+octree.h:97:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+octree.h:96:13: optimized: loop with 2 iterations completely unrolled (header execution count 178912237)
+octree.h:95:9: missed: couldn't vectorize loop
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:93:6: note: vectorized 0 loops in function.
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:95:9: optimized: loop with 1 iterations completely unrolled (header execution count 89442699)
+octree.h:98:21: missed: statement clobbers memory: free (_4);
+octree.h:98:21: missed: statement clobbers memory: free (_19);
+octree.h:98:21: missed: statement clobbers memory: free (_24);
+octree.h:98:21: missed: statement clobbers memory: free (_5);
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:98:21: missed: statement clobbers memory: free (_32);
+octree.h:98:21: missed: statement clobbers memory: free (_39);
+octree.h:98:21: missed: statement clobbers memory: free (_41);
+octree.h:100:5: missed: statement clobbers memory: free (octree_11(D));
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:35:5: missed: couldn't vectorize loop
+simulation.h:35:5: missed: not vectorized: control flow in loop.
+simulation.h:8:6: note: vectorized 0 loops in function.
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:23:13: missed: statement clobbers memory: _1 = malloc (131072);
+simulation.h:24:13: missed: statement clobbers memory: _2 = malloc (131072);
+simulation.h:25:13: missed: statement clobbers memory: _3 = malloc (131072);
+simulation.h:26:13: missed: statement clobbers memory: _4 = malloc (131072);
+simulation.h:27:13: missed: statement clobbers memory: _5 = malloc (131072);
+simulation.h:28:13: missed: statement clobbers memory: _6 = malloc (131072);
+simulation.h:29:13: missed: statement clobbers memory: _7 = malloc (131072);
+simulation.h:30:13: missed: statement clobbers memory: _8 = malloc (131072);
+simulation.h:31:13: missed: statement clobbers memory: _9 = malloc (131072);
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:36:35: missed: statement clobbers memory: r2_76 = rand ();
+simulation.h:38:35: missed: statement clobbers memory: _11 = rand ();
+simulation.h:39:28: missed: statement clobbers memory: _19 = rand ();
+simulation.h:40:35: missed: statement clobbers memory: _24 = rand ();
+simulation.h:42:35: missed: statement clobbers memory: _30 = rand ();
+simulation.h:43:28: missed: statement clobbers memory: _36 = rand ();
+simulation.h:44:35: missed: statement clobbers memory: _41 = rand ();
+simulation.h:83:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+simulation.h:82:13: optimized: loop with 2 iterations completely unrolled (header execution count 178912233)
+simulation.h:81:9: missed: couldn't vectorize loop
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:49:6: note: vectorized 0 loops in function.
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_140, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_147, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_149, i_109(D));
+simulation.h:108:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:106:9: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:107:13: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:101:6: note: vectorized 0 loops in function.
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:107:13: optimized: loop with 1 iterations completely unrolled (header execution count 178912234)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_95, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_41, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_98, i_16(D), range);
+simulation.h:108:17: optimized: loop with 2 iterations completely unrolled (header execution count 337652820)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:137:5: missed: couldn't vectorize loop
+simulation.h:137:5: missed: not vectorized: multiple nested loops.
+simulation.h:106:9: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:107:13: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:114:5: missed: couldn't vectorize loop
+simulation.h:114:5: missed: not vectorized: number of iterations cannot be computed.
+simulation.h:113:6: note: vectorized 0 loops in function.
+simulation.h:116:18: missed: failed: evolution of base is not affine.
+simulation.h:117:18: missed: failed: evolution of base is not affine.
+simulation.h:118:18: missed: failed: evolution of base is not affine.
+simulation.h:120:9: missed: statement clobbers memory: compute_acceleration (octree_78(D), i_131);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:107:13: optimized: loop with 1 iterations completely unrolled (header execution count 168801085)
+simulation.h:120:9: missed: statement clobbers memory: compute_acceleration (octree_78(D), i_131);
+geometry.h:35:8: note: ***** Re-trying analysis with vector size 16
+geometry.h:35:8: note: SLPing BB part
+geometry.h:35:8: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&range] = _59;
+geometry.h:35:8: note: vect_is_simple_use: operand *_58, type of def: external
+geometry.h:35:8: note: vect_is_simple_use: operand *_61, type of def: external
+geometry.h:35:8: note: transform store. ncopies = 1
+geometry.h:35:8: note: add new stmt: vect_cst__243 = _244;
+geometry.h:35:8: note: created new init_stmt: vect_cst__243 = _244;
+geometry.h:35:8: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Box *)&range]
+geometry.h:35:8: note: created &MEM[(struct Box *)&range]
+geometry.h:35:8: note: add new stmt: MEM[(struct Box *)&range] = vect_cst__243;
+geometry.h:35:8: note: vectorizing stmts using SLP.
+geometry.h:35:8: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&range + 32B] = 2.0e+1;
+geometry.h:35:8: note: vect_is_simple_use: operand 2.0e+1, type of def: constant
+geometry.h:35:8: note: vect_is_simple_use: operand 2.0e+1, type of def: constant
+geometry.h:35:8: note: transform store. ncopies = 1
+geometry.h:35:8: note: created new init_stmt: vect_cst__258 = { 2.0e+1, 2.0e+1 };
+geometry.h:35:8: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Box *)&range + 32B]
+geometry.h:35:8: note: created &MEM[(struct Box *)&range + 32B]
+geometry.h:35:8: note: add new stmt: MEM[(struct Box *)&range + 32B] = vect_cst__258;
+geometry.h:35:8: note: vectorizing stmts using SLP.
+geometry.h:35:8: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:35:8: note: basic block vectorized
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_248, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_246, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_176, i_162, range);
+octree.h:97:17: optimized: loop with 2 iterations completely unrolled (header execution count 236294107)
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count 472588206)
+octree.h:96:13: optimized: loop with 2 iterations completely unrolled (header execution count 118129330)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 236258656)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 118111611)
+main.c:30:5: missed: couldn't vectorize loop
+main.c:30:5: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+octree.h:95:9: missed: couldn't vectorize loop
+octree.h:98:21: missed: statement clobbers memory: free (_118);
+main.c:38:9: missed: couldn't vectorize loop
+main.c:38:9: missed: not vectorized: number of iterations cannot be computed.
+main.c:15:5: note: vectorized 0 loops in function.
+main.c:39:13: missed: statement clobbers memory: insertParticle (octree_67, i_158);
+octree.h:98:21: missed: statement clobbers memory: free (_118);
+octree.h:95:9: optimized: loop with 1 iterations completely unrolled (header execution count 59055806)
+main.c:17:5: missed: statement clobbers memory: srand (2);
+main.c:19:5: missed: statement clobbers memory: init_system ();
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "\x1b[1m%5s %10s\x1b[0m\n", "Step", "Time, s\n");
+main.c:26:62: missed: statement clobbers memory: fflush (stdout.20_1);
+main.c:33:25: missed: statement clobbers memory: before_44 = omp_get_wtime ();
+octree.h:22:22: missed: statement clobbers memory: octree_67 = malloc (128);
+main.c:36:9: missed: statement clobbers memory: subdivide (octree_67);
+main.c:36:9: note: SLPing BB part
+main.c:36:9: note: ------>vectorizing SLP node starting from: MEM[(struct Octree *)octree_67] = 5.0e-1;
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: transform store. ncopies = 1
+main.c:36:9: note: created new init_stmt: vect_cst__143 = { 5.0e-1, 5.0e-1, 5.0e-1, 5.0e-1 };
+main.c:36:9: note: create vector_type-pointer variable to type: vector(4) double  vectorizing a pointer ref: MEM[(struct Octree *)octree_67]
+main.c:36:9: note: created vectp.315_155
+main.c:36:9: note: add new stmt: MEM[(struct Octree *)vectp.315_155] = vect_cst__143;
+main.c:36:9: note: vectorizing stmts using SLP.
+main.c:36:9: note: ------>vectorizing SLP node starting from: octree_67->subtrees[0][0][0] = 0B;
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: transform store. ncopies = 1
+main.c:36:9: note: created new init_stmt: vect_cst__4 = { 0, 0, 0, 0 };
+main.c:36:9: note: created new init_stmt: vect_cst__96 = { 0, 0, 0, 0 };
+main.c:36:9: note: create vector_type-pointer variable to type: vector(4) long unsigned int  vectorizing a pointer ref: octree_67->subtrees[0][0][0]
+main.c:36:9: note: created vectp.317_137
+main.c:36:9: note: add new stmt: MEM[(struct Octree * *)vectp.317_137] = vect_cst__96;
+main.c:36:9: note: add new stmt: vectp.317_81 = vectp.317_137 + 32;
+main.c:36:9: note: add new stmt: MEM[(struct Octree * *)vectp.317_81] = vect_cst__4;
+main.c:36:9: note: vectorizing stmts using SLP.
+main.c:36:9: optimized: basic block part vectorized using 32 byte vectors
+main.c:38:9: note: basic block vectorized
+main.c:39:13: missed: statement clobbers memory: insertParticle (octree_67, i_158);
+main.c:42:9: missed: statement clobbers memory: simulate (octree_67);
+octree.h:98:21: missed: statement clobbers memory: free (_87);
+octree.h:98:21: missed: statement clobbers memory: free (_68);
+octree.h:98:21: missed: statement clobbers memory: free (_25);
+octree.h:98:21: missed: statement clobbers memory: free (_23);
+octree.h:98:21: missed: statement clobbers memory: free (_118);
+octree.h:98:21: missed: statement clobbers memory: free (_120);
+octree.h:98:21: missed: statement clobbers memory: free (_127);
+octree.h:98:21: missed: statement clobbers memory: free (_129);
+octree.h:100:5: missed: statement clobbers memory: free (octree_67);
+main.c:46:25: missed: statement clobbers memory: after_51 = omp_get_wtime ();
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "%d, %lf\n", n_149, _3);
+main.c:52:47: missed: statement clobbers memory: fflush (stdout.22_5);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "Overall time (s) : %lf\n", perf_157);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "Bandwith (GB/sec): %lf\n", bw_32);
+main.c:63:5: missed: statement clobbers memory: free (_14);
+main.c:63:19: missed: statement clobbers memory: free (_15);
+main.c:63:33: missed: statement clobbers memory: free (_16);
+main.c:64:5: missed: statement clobbers memory: free (_17);
+main.c:64:19: missed: statement clobbers memory: free (_18);
+main.c:64:33: missed: statement clobbers memory: free (_19);
+main.c:65:5: missed: statement clobbers memory: free (_20);
+main.c:65:19: missed: statement clobbers memory: free (_21);
+main.c:65:33: missed: statement clobbers memory: free (_22);
+geometry.h:12:41: note: Considering inline candidate newPt/50.
+geometry.h:12:41: optimized:  Inlining newPt/50 into addPts/53.
+geometry.h:13:43: note: Considering inline candidate newPt/50.
+geometry.h:13:43: optimized:  Inlining newPt/50 into scalePt/54.
+octree.h:51:45: note: Considering inline candidate newOctree/64.
+octree.h:51:45: missed:   will not early inline: subdivide/65->newOctree/64, growth 17 exceeds --param early-inlining-insns
+octree.h:51:45: note: Considering inline candidate newBox/55.
+octree.h:51:45: optimized:  Inlining newBox/55 into subdivide/65.
+octree.h:88:21: note: Considering inline candidate insertParticle/66.
+octree.h:88:21: missed:   Not inlining: recursive call.
+octree.h:81:13: note: Considering inline candidate insertParticle/66.
+octree.h:81:13: missed:   Not inlining: recursive call.
+octree.h:79:13: note: Considering inline candidate insertParticle/66.
+octree.h:79:13: missed:   Not inlining: recursive call.
+octree.h:76:13: note: Considering inline candidate subdivide/65.
+octree.h:76:13: missed:   will not early inline: insertParticle/66->subdivide/65, growth 41 exceeds --param early-inlining-insns
+octree.h:61:10: note: Considering inline candidate inBox/56.
+octree.h:61:10: optimized:  Inlining inBox/56 into insertParticle/66.
+simulation.h:84:21: note: Considering inline candidate compute_acceleration/69.
+simulation.h:84:21: missed:   Not inlining: recursive call.
+simulation.h:109:21: note: Considering inline candidate search_potential_collisions/71.
+simulation.h:109:21: missed:   Not inlining: recursive call.
+simulation.h:104:30: note: Considering inline candidate resolve_collisions/70.
+simulation.h:104:30: missed:   will not early inline: search_potential_collisions/71->resolve_collisions/70, growth 20 exceeds --param early-inlining-insns
+simulation.h:102:10: note: Considering inline candidate intersect/57.
+simulation.h:102:10: optimized:  Inlining intersect/57 into search_potential_collisions/71.
+simulation.h:139:9: note: Considering inline candidate search_potential_collisions/71.
+simulation.h:139:9: missed:   will not early inline: simulate/72->search_potential_collisions/71, growth 41 exceeds --param early-inlining-insns
+simulation.h:120:9: note: Considering inline candidate compute_acceleration/69.
+simulation.h:120:9: missed:   will not early inline: simulate/72->compute_acceleration/69, growth 122 exceeds --param early-inlining-insns
+main.c:60:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:59:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:52:9: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:26:5: optimized:   Inlining printf/15 into main/73 (always_inline).
+main.c:44:9: note: Considering inline candidate deconstructTree/67.
+main.c:44:9: missed:   will not early inline: main/73->deconstructTree/67, growth 14 exceeds --param early-inlining-insns divided by number of calls
+main.c:42:9: note: Considering inline candidate simulate/72.
+main.c:42:9: missed:   will not early inline: main/73->simulate/72, growth 92 exceeds --param early-inlining-insns
+main.c:39:13: note: Considering inline candidate insertParticle/66.
+main.c:39:13: missed:   will not early inline: main/73->insertParticle/66, growth 64 exceeds --param early-inlining-insns
+main.c:36:9: note: Considering inline candidate subdivide/65.
+main.c:36:9: missed:   will not early inline: main/73->subdivide/65, growth 41 exceeds --param early-inlining-insns
+main.c:35:18: note: Considering inline candidate newOctree/64.
+main.c:35:18: missed:   will not early inline: main/73->newOctree/64, growth 17 exceeds --param early-inlining-insns
+main.c:21:20: note: Considering inline candidate newBox/55.
+main.c:21:20: optimized:  Inlining newBox/55 into main/73.
+main.c:19:5: note: Considering inline candidate init_system/68.
+main.c:19:5: missed:   will not early inline: main/73->init_system/68, growth 95 exceeds --param early-inlining-insns
+main.c:65:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:65:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:65:5: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:64:5: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:33: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:19: missed:   not inlinable: main/73 -> free/76, function body not available
+main.c:63:5: missed:   not inlinable: main/73 -> free/76, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:52:47: missed:   not inlinable: main/73 -> fflush/80, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:46:25: missed:   not inlinable: main/73 -> omp_get_wtime/81, function body not available
+main.c:42:9: missed:   not inlinable: main/73 -> simulate/72, --param max-inline-insns-auto limit reached
+main.c:39:13: missed:   not inlinable: main/73 -> insertParticle/66, --param max-inline-insns-auto limit reached
+main.c:36:9: missed:   not inlinable: main/73 -> subdivide/65, --param max-inline-insns-auto limit reached
+main.c:33:25: missed:   not inlinable: main/73 -> omp_get_wtime/81, function body not available
+main.c:26:62: missed:   not inlinable: main/73 -> fflush/80, function body not available
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed:   not inlinable: main/73 -> __printf_chk/82, function body not available
+main.c:19:5: missed:   not inlinable: main/73 -> init_system/68, --param max-inline-insns-auto limit reached
+main.c:17:5: missed:   not inlinable: main/73 -> srand/78, function body not available
+simulation.h:120:9: missed:   not inlinable: simulate/72 -> compute_acceleration/69, --param max-inline-insns-auto limit reached
+simulation.h:84:21: missed:   not inlinable: compute_acceleration/69 -> compute_acceleration/69, --param max-inline-insns-auto limit reached
+simulation.h:73:24: missed:   not inlinable: compute_acceleration/69 -> sqrt/74, function body not available
+simulation.h:57:20: missed:   not inlinable: compute_acceleration/69 -> sqrt/74, function body not available
+simulation.h:44:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:43:28: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:42:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:40:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:39:28: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:38:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:36:35: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:36:18: missed:   not inlinable: init_system/68 -> rand/77, function body not available
+simulation.h:31:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:30:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:29:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:28:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:27:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:26:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:25:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:24:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+simulation.h:23:13: missed:   not inlinable: init_system/68 -> malloc/75, function body not available
+octree.h:100:5: missed:   not inlinable: deconstructTree/67 -> free/76, function body not available
+octree.h:98:21: missed:   not inlinable: deconstructTree/67 -> free/76, function body not available
+octree.h:88:21: missed:   not inlinable: insertParticle/66 -> insertParticle/66, --param max-inline-insns-auto limit reached
+octree.h:79:13: missed:   not inlinable: insertParticle/66 -> insertParticle/66, --param max-inline-insns-auto limit reached
+octree.h:76:13: missed:   not inlinable: insertParticle/66 -> subdivide/65, --param max-inline-insns-auto limit reached
+octree.h:22:22: missed:   not inlinable: newOctree/64 -> malloc/75, function body not available
+geometry.h:11:39: missed:   not inlinable: mod/52 -> sqrt/74, function body not available
+main.c:44:9: optimized:  Inlined deconstructTree/92 into main/73 which now has time 2716.053795 and size 112, net change of +14.
+octree.h:51:45: optimized:  Inlined newOctree/93 into subdivide/65 which now has time 946.589740 and size 67, net change of +17.
+main.c:35:18: optimized:  Inlined newOctree/94 into main/73 which now has time 3290.685604 and size 129, net change of +17.
+simulation.h:139:9: optimized:  Inlined search_potential_collisions/95 into simulate/72 which now has time 1116.686609 and size 138, net change of +41.
+simulation.h:104:30: optimized:  Inlined resolve_collisions/96 into search_potential_collisions/95 which now has time 52.215830 and size 60, net change of +20.
+simulation.h:104:30: optimized:  Inlined resolve_collisions/97 into search_potential_collisions/71 which now has time 52.694264 and size 80, net change of +20.
+Unit growth for small function inlining: 828->957 (15%)
+
+Inlined 16 calls, eliminated 0 functions
+
+geometry.h:9:106: note: ***** Re-trying analysis with vector size 16
+geometry.h:9:106: note: SLPing BB part
+geometry.h:9:106: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = p_2(D);
+geometry.h:9:106: note: vect_is_simple_use: operand p_2(D), type of def: external
+geometry.h:9:106: note: vect_is_simple_use: operand q_3(D), type of def: external
+geometry.h:9:106: note: transform store. ncopies = 1
+geometry.h:9:106: note: created new init_stmt: vect_cst__9 = _8;
+geometry.h:9:106: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:9:106: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:9:106: note: add new stmt: MEM[(struct Point *)&<retval>] = vect_cst__9;
+geometry.h:9:106: note: vectorizing stmts using SLP.
+geometry.h:9:106: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:9:106: note: basic block vectorized
+geometry.h:12:41: note: ***** Re-trying analysis with vector size 16
+geometry.h:12:41: note: SLPing BB part
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _7 = a.x;
+geometry.h:12:41: note: transform load. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: a.x
+geometry.h:12:41: note: created &a.x
+geometry.h:12:41: note: add new stmt: vect__7.132_14 = MEM[(double *)&a];
+geometry.h:12:41: note: add new stmt: _15 = &a.x + 8;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _8 = b.x;
+geometry.h:12:41: note: transform load. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: b.x
+geometry.h:12:41: note: created &b.x
+geometry.h:12:41: note: add new stmt: vect__8.135_16 = MEM[(double *)&b];
+geometry.h:12:41: note: add new stmt: _17 = &b.x + 8;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: _9 = _7 + _8;
+geometry.h:12:41: note: vect_is_simple_use: operand a.x, type of def: internal
+geometry.h:12:41: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:12:41: note: vect_is_simple_use: operand b.x, type of def: internal
+geometry.h:12:41: note: transform binary/unary operation.
+geometry.h:12:41: note: add new stmt: vect__9.136_18 = vect__7.132_14 + vect__8.135_16;
+geometry.h:12:41: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = _9;
+geometry.h:12:41: note: vect_is_simple_use: operand _7 + _8, type of def: internal
+geometry.h:12:41: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:12:41: note: vect_is_simple_use: operand _4 + _5, type of def: internal
+geometry.h:12:41: note: transform store. ncopies = 1
+geometry.h:12:41: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:12:41: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:12:41: note: add new stmt: MEM[(struct Point *)&<retval>] = vect__9.136_18;
+geometry.h:12:41: note: vectorizing stmts using SLP.
+geometry.h:12:41: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:12:41: note: basic block vectorized
+geometry.h:13:43: note: ***** Re-trying analysis with vector size 16
+geometry.h:13:43: note: SLPing BB part
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: _5 = a.x;
+geometry.h:13:43: note: transform load. ncopies = 1
+geometry.h:13:43: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: a.x
+geometry.h:13:43: note: created &a.x
+geometry.h:13:43: note: add new stmt: vect__5.143_12 = MEM[(double *)&a];
+geometry.h:13:43: note: add new stmt: _13 = &a.x + 8;
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: _6 = _5 * s_8(D);
+geometry.h:13:43: note: vect_is_simple_use: operand a.x, type of def: internal
+geometry.h:13:43: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:13:43: note: vect_is_simple_use: operand s_8(D), type of def: external
+geometry.h:13:43: note: transform binary/unary operation.
+geometry.h:13:43: note: created new init_stmt: vect_cst__15 = _14;
+geometry.h:13:43: note: add new stmt: vect__6.144_16 = vect__5.143_12 * vect_cst__15;
+geometry.h:13:43: note: ------>vectorizing SLP node starting from: MEM[(struct Point *)&<retval>] = _6;
+geometry.h:13:43: note: vect_is_simple_use: operand _5 * s_8(D), type of def: internal
+geometry.h:13:43: note: vect_is_simple_use: vectype vector(2) double
+geometry.h:13:43: note: vect_is_simple_use: operand _3 * s_8(D), type of def: internal
+geometry.h:13:43: note: transform store. ncopies = 1
+geometry.h:13:43: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Point *)&<retval>]
+geometry.h:13:43: note: created &MEM[(struct Point *)&<retval>]
+geometry.h:13:43: note: add new stmt: MEM[(struct Point *)&<retval>] = vect__6.144_16;
+geometry.h:13:43: note: vectorizing stmts using SLP.
+geometry.h:13:43: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:13:43: note: basic block vectorized
+geometry.h:23:12: note: SLPing BB part
+geometry.h:23:12: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&<retval>] = x_2(D);
+geometry.h:23:12: note: vect_is_simple_use: operand x_2(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand y_3(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand z_4(D), type of def: external
+geometry.h:23:12: note: vect_is_simple_use: operand w_5(D), type of def: external
+geometry.h:23:12: note: transform store. ncopies = 1
+geometry.h:23:12: note: created new init_stmt: vect_cst__15 = _14;
+geometry.h:23:12: note: create vector_type-pointer variable to type: vector(4) double  vectorizing a pointer ref: MEM[(struct Box *)&<retval>]
+geometry.h:23:12: note: created &MEM[(struct Box *)&<retval>]
+geometry.h:23:12: note: add new stmt: MEM[(struct Box *)&<retval>] = vect_cst__15;
+geometry.h:23:12: note: vectorizing stmts using SLP.
+geometry.h:23:12: optimized: basic block part vectorized using 32 byte vectors
+geometry.h:23:12: note: basic block vectorized
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 178912237)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 89442698)
+octree.h:21:9: note: vectorized 0 loops in function.
+octree.h:22:22: missed: statement clobbers memory: octree_9 = malloc (128);
+octree.h:23:22: missed: not vectorized: more than one data ref in stmt: octree_9->boundary = boundary;
+octree.h:34:12: note: ***** Re-trying analysis with vector size 16
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count -1430652825)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 1431942424)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 715863801)
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:48:5: missed: couldn't vectorize loop
+octree.h:48:5: missed: not vectorized: multiple nested loops.
+octree.h:49:9: missed: couldn't vectorize loop
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:50:13: missed: couldn't vectorize loop
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:39:6: note: vectorized 0 loops in function.
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:50:13: optimized: loop with 1 iterations completely unrolled (header execution count 357878205)
+octree.h:22:22: missed: statement clobbers memory: octree_6 = malloc (128);
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:22:22: note: ***** Re-trying analysis with vector size 16
+octree.h:22:22: missed: statement clobbers memory: octree_47 = malloc (128);
+octree.h:49:9: note: ***** Re-trying analysis with vector size 16
+octree.h:87:17: optimized: loop with 2 iterations completely unrolled (header execution count 291832262)
+octree.h:86:13: optimized: loop with 2 iterations completely unrolled (header execution count 145894245)
+octree.h:85:9: missed: couldn't vectorize loop
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+geometry.h:27:31: missed: couldn't vectorize loop
+geometry.h:27:31: missed: not vectorized: control flow in loop.
+octree.h:58:6: note: vectorized 0 loops in function.
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+octree.h:76:13: missed: statement clobbers memory: subdivide (octree_48(D));
+octree.h:76:13: missed: statement clobbers memory: subdivide (octree_48(D));
+octree.h:79:13: missed: statement clobbers memory: insertParticle (octree_48(D), tmp_35);
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_72, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_74, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_81, i_12(D));
+octree.h:88:21: missed: statement clobbers memory: insertParticle (_83, i_12(D));
+octree.h:97:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+octree.h:96:13: optimized: loop with 2 iterations completely unrolled (header execution count 178912237)
+octree.h:95:9: missed: couldn't vectorize loop
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:93:6: note: vectorized 0 loops in function.
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:95:9: optimized: loop with 1 iterations completely unrolled (header execution count 89442699)
+octree.h:98:21: missed: statement clobbers memory: free (_4);
+octree.h:98:21: missed: statement clobbers memory: free (_19);
+octree.h:98:21: missed: statement clobbers memory: free (_24);
+octree.h:98:21: missed: statement clobbers memory: free (_5);
+octree.h:98:21: missed: statement clobbers memory: free (_30);
+octree.h:98:21: missed: statement clobbers memory: free (_32);
+octree.h:98:21: missed: statement clobbers memory: free (_39);
+octree.h:98:21: missed: statement clobbers memory: free (_41);
+octree.h:100:5: missed: statement clobbers memory: free (octree_11(D));
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:35:5: missed: couldn't vectorize loop
+simulation.h:35:5: missed: not vectorized: control flow in loop.
+simulation.h:8:6: note: vectorized 0 loops in function.
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:23:13: missed: statement clobbers memory: _1 = malloc (131072);
+simulation.h:24:13: missed: statement clobbers memory: _2 = malloc (131072);
+simulation.h:25:13: missed: statement clobbers memory: _3 = malloc (131072);
+simulation.h:26:13: missed: statement clobbers memory: _4 = malloc (131072);
+simulation.h:27:13: missed: statement clobbers memory: _5 = malloc (131072);
+simulation.h:28:13: missed: statement clobbers memory: _6 = malloc (131072);
+simulation.h:29:13: missed: statement clobbers memory: _7 = malloc (131072);
+simulation.h:30:13: missed: statement clobbers memory: _8 = malloc (131072);
+simulation.h:31:13: missed: statement clobbers memory: _9 = malloc (131072);
+simulation.h:36:18: missed: statement clobbers memory: r1_74 = rand ();
+simulation.h:36:35: missed: statement clobbers memory: r2_76 = rand ();
+simulation.h:38:35: missed: statement clobbers memory: _11 = rand ();
+simulation.h:39:28: missed: statement clobbers memory: _19 = rand ();
+simulation.h:40:35: missed: statement clobbers memory: _24 = rand ();
+simulation.h:42:35: missed: statement clobbers memory: _30 = rand ();
+simulation.h:43:28: missed: statement clobbers memory: _36 = rand ();
+simulation.h:44:35: missed: statement clobbers memory: _41 = rand ();
+simulation.h:83:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+simulation.h:82:13: optimized: loop with 2 iterations completely unrolled (header execution count 178912233)
+simulation.h:81:9: missed: couldn't vectorize loop
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:49:6: note: vectorized 0 loops in function.
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_138, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_140, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_147, i_109(D));
+simulation.h:84:21: missed: statement clobbers memory: compute_acceleration (_149, i_109(D));
+simulation.h:108:17: optimized: loop with 2 iterations completely unrolled (header execution count 357878152)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:106:9: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:107:13: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:101:6: note: vectorized 0 loops in function.
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:107:13: optimized: loop with 1 iterations completely unrolled (header execution count 178912234)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_95, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_41, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_93, i_16(D), range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_98, i_16(D), range);
+simulation.h:108:17: optimized: loop with 2 iterations completely unrolled (header execution count 337652820)
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:137:5: missed: couldn't vectorize loop
+simulation.h:137:5: missed: not vectorized: multiple nested loops.
+simulation.h:106:9: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:107:13: missed: couldn't vectorize loop
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:114:5: missed: couldn't vectorize loop
+simulation.h:114:5: missed: not vectorized: number of iterations cannot be computed.
+simulation.h:113:6: note: vectorized 0 loops in function.
+simulation.h:116:18: missed: failed: evolution of base is not affine.
+simulation.h:117:18: missed: failed: evolution of base is not affine.
+simulation.h:118:18: missed: failed: evolution of base is not affine.
+simulation.h:120:9: missed: statement clobbers memory: compute_acceleration (octree_78(D), i_131);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:107:13: optimized: loop with 1 iterations completely unrolled (header execution count 168801085)
+simulation.h:120:9: missed: statement clobbers memory: compute_acceleration (octree_78(D), i_131);
+geometry.h:35:8: note: ***** Re-trying analysis with vector size 16
+geometry.h:35:8: note: SLPing BB part
+geometry.h:35:8: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&range] = _59;
+geometry.h:35:8: note: vect_is_simple_use: operand *_58, type of def: external
+geometry.h:35:8: note: vect_is_simple_use: operand *_61, type of def: external
+geometry.h:35:8: note: transform store. ncopies = 1
+geometry.h:35:8: note: add new stmt: vect_cst__243 = _244;
+geometry.h:35:8: note: created new init_stmt: vect_cst__243 = _244;
+geometry.h:35:8: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Box *)&range]
+geometry.h:35:8: note: created &MEM[(struct Box *)&range]
+geometry.h:35:8: note: add new stmt: MEM[(struct Box *)&range] = vect_cst__243;
+geometry.h:35:8: note: vectorizing stmts using SLP.
+geometry.h:35:8: note: ------>vectorizing SLP node starting from: MEM[(struct Box *)&range + 32B] = 2.0e+1;
+geometry.h:35:8: note: vect_is_simple_use: operand 2.0e+1, type of def: constant
+geometry.h:35:8: note: vect_is_simple_use: operand 2.0e+1, type of def: constant
+geometry.h:35:8: note: transform store. ncopies = 1
+geometry.h:35:8: note: created new init_stmt: vect_cst__258 = { 2.0e+1, 2.0e+1 };
+geometry.h:35:8: note: create vector_type-pointer variable to type: vector(2) double  vectorizing a pointer ref: MEM[(struct Box *)&range + 32B]
+geometry.h:35:8: note: created &MEM[(struct Box *)&range + 32B]
+geometry.h:35:8: note: add new stmt: MEM[(struct Box *)&range + 32B] = vect_cst__258;
+geometry.h:35:8: note: vectorizing stmts using SLP.
+geometry.h:35:8: optimized: basic block part vectorized using 16 byte vectors
+geometry.h:35:8: note: basic block vectorized
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_248, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_246, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_171, i_162, range);
+simulation.h:109:21: missed: statement clobbers memory: search_potential_collisions (_176, i_162, range);
+octree.h:97:17: optimized: loop with 2 iterations completely unrolled (header execution count 236294107)
+octree.h:27:13: optimized: loop with 2 iterations completely unrolled (header execution count 472588206)
+octree.h:96:13: optimized: loop with 2 iterations completely unrolled (header execution count 118129330)
+octree.h:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 236258656)
+octree.h:25:5: optimized: loop with 2 iterations completely unrolled (header execution count 118111611)
+main.c:30:5: missed: couldn't vectorize loop
+main.c:30:5: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+octree.h:95:9: missed: couldn't vectorize loop
+octree.h:98:21: missed: statement clobbers memory: free (_118);
+main.c:38:9: missed: couldn't vectorize loop
+main.c:38:9: missed: not vectorized: number of iterations cannot be computed.
+main.c:15:5: note: vectorized 0 loops in function.
+main.c:39:13: missed: statement clobbers memory: insertParticle (octree_67, i_158);
+octree.h:98:21: missed: statement clobbers memory: free (_118);
+octree.h:95:9: optimized: loop with 1 iterations completely unrolled (header execution count 59055806)
+main.c:17:5: missed: statement clobbers memory: srand (2);
+main.c:19:5: missed: statement clobbers memory: init_system ();
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "\x1b[1m%5s %10s\x1b[0m\n", "Step", "Time, s\n");
+main.c:26:62: missed: statement clobbers memory: fflush (stdout.20_1);
+main.c:33:25: missed: statement clobbers memory: before_44 = omp_get_wtime ();
+octree.h:22:22: missed: statement clobbers memory: octree_67 = malloc (128);
+main.c:36:9: missed: statement clobbers memory: subdivide (octree_67);
+main.c:36:9: note: SLPing BB part
+main.c:36:9: note: ------>vectorizing SLP node starting from: MEM[(struct Octree *)octree_67] = 5.0e-1;
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 5.0e-1, type of def: constant
+main.c:36:9: note: transform store. ncopies = 1
+main.c:36:9: note: created new init_stmt: vect_cst__143 = { 5.0e-1, 5.0e-1, 5.0e-1, 5.0e-1 };
+main.c:36:9: note: create vector_type-pointer variable to type: vector(4) double  vectorizing a pointer ref: MEM[(struct Octree *)octree_67]
+main.c:36:9: note: created vectp.315_155
+main.c:36:9: note: add new stmt: MEM[(struct Octree *)vectp.315_155] = vect_cst__143;
+main.c:36:9: note: vectorizing stmts using SLP.
+main.c:36:9: note: ------>vectorizing SLP node starting from: octree_67->subtrees[0][0][0] = 0B;
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: vect_is_simple_use: operand 0B, type of def: constant
+main.c:36:9: note: transform store. ncopies = 1
+main.c:36:9: note: created new init_stmt: vect_cst__4 = { 0, 0, 0, 0 };
+main.c:36:9: note: created new init_stmt: vect_cst__96 = { 0, 0, 0, 0 };
+main.c:36:9: note: create vector_type-pointer variable to type: vector(4) long unsigned int  vectorizing a pointer ref: octree_67->subtrees[0][0][0]
+main.c:36:9: note: created vectp.317_137
+main.c:36:9: note: add new stmt: MEM[(struct Octree * *)vectp.317_137] = vect_cst__96;
+main.c:36:9: note: add new stmt: vectp.317_81 = vectp.317_137 + 32;
+main.c:36:9: note: add new stmt: MEM[(struct Octree * *)vectp.317_81] = vect_cst__4;
+main.c:36:9: note: vectorizing stmts using SLP.
+main.c:36:9: optimized: basic block part vectorized using 32 byte vectors
+main.c:38:9: note: basic block vectorized
+main.c:39:13: missed: statement clobbers memory: insertParticle (octree_67, i_158);
+main.c:42:9: missed: statement clobbers memory: simulate (octree_67);
+octree.h:98:21: missed: statement clobbers memory: free (_87);
+octree.h:98:21: missed: statement clobbers memory: free (_68);
+octree.h:98:21: missed: statement clobbers memory: free (_25);
+octree.h:98:21: missed: statement clobbers memory: free (_23);
+octree.h:98:21: missed: statement clobbers memory: free (_118);
+octree.h:98:21: missed: statement clobbers memory: free (_120);
+octree.h:98:21: missed: statement clobbers memory: free (_127);
+octree.h:98:21: missed: statement clobbers memory: free (_129);
+octree.h:100:5: missed: statement clobbers memory: free (octree_67);
+main.c:46:25: missed: statement clobbers memory: after_51 = omp_get_wtime ();
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "%d, %lf\n", n_149, _3);
+main.c:52:47: missed: statement clobbers memory: fflush (stdout.22_5);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "Overall time (s) : %lf\n", perf_157);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:107:10: missed: statement clobbers memory: __printf_chk (1, "Bandwith (GB/sec): %lf\n", bw_32);
+main.c:63:5: missed: statement clobbers memory: free (_14);
+main.c:63:19: missed: statement clobbers memory: free (_15);
+main.c:63:33: missed: statement clobbers memory: free (_16);
+main.c:64:5: missed: statement clobbers memory: free (_17);
+main.c:64:19: missed: statement clobbers memory: free (_18);
+main.c:64:33: missed: statement clobbers memory: free (_19);
+main.c:65:5: missed: statement clobbers memory: free (_20);
+main.c:65:19: missed: statement clobbers memory: free (_21);
+main.c:65:33: missed: statement clobbers memory: free (_22);

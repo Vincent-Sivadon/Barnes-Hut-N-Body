@@ -1,0 +1,7 @@
+********************************************************************************
+
+MAQAO 2.15.0 - b1544c69c095a29fedd570ae9a5f2917b3fb35a8::20211209-173719 || 2021/12/09
+
+maqao oneview -R1 ./octree 
+
+CMD:   /opt/maqao/bin/maqao lprof  --xp="/home/vincents/Documents/ArchiParallele/nbody3D/OCTREE/maqao_2021-12-23_17-42-29/tools/lprof_npsu_run_0" --mpi-command=""   -- /home/vincents/Documents/ArchiParallele/nbody3D/OCTREE/maqao_2021-12-23_17-42-29/binaries/octree
