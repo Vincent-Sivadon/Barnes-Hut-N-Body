@@ -1,6 +1,7 @@
 CC=gcc
 CFLAGS=-Ofast
 sdllib=`sdl2-config --cflags --libs`
+LFLAGS=-lm -fopenmp
 
 
 # PERFORMANCE PLOTS
@@ -13,68 +14,77 @@ plotPerf1000: PERF/1000_quad.dat PERF/1000_0.dat
 	gnuplot -c gnu_script_1000.gp && \
 	eog perf_1000.png
 
-# QUAD DATA GENERATION
-genPerf500quad: QUAD/main.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h
-	$(CC) -Ofast -DPERF500 QUAD/main.c -o quad $(sdllib) -lm -fopenmp
-	sudo taskset -c 2 ./quad > PERF/500_quad.dat
-genPerf1000quad: QUAD/main.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h
-	$(CC) -Ofast -DPERF1000 QUAD/main.c -o quad $(sdllib) -lm -fopenmp
-	sudo taskset -c 2 ./quad > PERF/1000_quad.dat
-genPRECquad: QUAD/main.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h
-	$(CC) -DPREC QUAD/main.c -o quad $(sdllib) -lm
-	sudo taskset -c 2 ./quad > PRECISION/quad.dat
+# QUAD
 quad: QUAD/main.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h makefile
-	$(CC) -Ofast -DOVERALLPERF -DSDL -DBIG QUAD/main.c -o quad $(sdllib) -lm -fopenmp
-#sudo taskset -c 2 ./quad
-memtest: QUAD/memtest.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h makefile
-	$(CC) -pg QUAD/memtest.c -o memtest $(sdllib) -lm -fopenmp
-
-# NBODY0 DATA GENERATION
-genPerf500_0: nbody0.c
-	$(CC) -Ofast -DPERF500 nbody0.c -o nbody0 $(sdllib) -lm -fopenmp
-	sudo taskset -c 2 ./nbody0 > PERF/500_0.dat
-genPerf1000_0: nbody0.c
-	$(CC) -Ofast -DPERF1000 nbody0.c -o nbody0 $(sdllib) -lm -fopenmp
-	sudo taskset -c 2 ./nbody0 > PERF/1000_0.dat
-genPREC_0: nbody0.c
-	$(CC) -DPREC nbody0.c -o nbody0 $(sdllib) -lm -fopenmp
-	sudo taskset -c 2 ./nbody0 > PRECISION/0.dat
-
-# NBODYSOA DATA GENERATION
-genPREC_SOA: nbodySOA.c
-	$(CC) -DPREC nbodySOA.c -o nbodySOA $(sdllib) -lm -fopenmp
-	sudo taskset -c 2 ./nbodySOA > PRECISION/SOA.dat
+	$(CC) -Ofast -DOVERALLPERF -DSDL $< -o bin/$@ $(sdllib) $(LFLAGS)
+quadPERF: QUAD/main.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h makefile
+	$(CC) -Ofast -DPERF $< -o bin/$@ $(LFLAGS)
+quadPREC: QUAD/main.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h makefile
+	$(CC) -DPREC $< -o bin/$@ $(LFLAGS)
 
 
-
-comp_quad: PRECISION/comparaison.c PRECISION/0.dat PRECISION/quad.dat
-	cd PRECISION && \
-	$(CC) -DQUAD comparaison.c -o comparaison && \
-	./comparaison > deltas.dat && \
-	gnuplot -c gnu_script_quad.gp && \
-	eog precision_quad.png
-comp_SOA: PRECISION/comparaison.c PRECISION/SOA.dat PRECISION/0.dat
-	cd PRECISION && \
-	$(CC) -DSOA comparaison.c -o comparaison && \
-	./comparaison > deltas.dat && \
-	gnuplot -c gnu_script_SOA.gp && \
-	eog precision_SOA.png
+# NBODY0
+base: nbody0.c
+	$(CC) -Ofast -DSDL $< -o bin/$@ $(sdllib) $(LFLAGS)
+basePERF: nbody0.c
+	$(CC) -Ofast -DPERF $< -o bin/$@ $(LFLAGS)
+basePREC: nbody0.c
+	$(CC) -DPREC $< -o bin/$@ $(LFLAGS)
 
 
-base:  nbody0.c
-	$(CC) $(CFLAGS) $< -o nbody0 $(sdllib) -lm -fopenmp
+# NBODYSOA
+soa: nbodySOA.c
+	$(CC) -Ofast -DSDL $< -o bin/$@ $(sdllib) $(LFLAGS)
+soaPERF: nbodySOA.c
+	$(CC) -Ofast -DPERF $< -o bin/$@ $(LFLAGS)
+soaPREC: nbodySOA.c
+	$(CC) -DPREC $< -o bin/$@ $(LFLAGS)
 
 
-SOA: nbodySOA.c
-	$(CC) $(CFLAGS) $< -o nbodySOA $(sdllib) -lm -fopenmp
+genBasePerf:
+	sudo taskset 2 bin/basePERF 500   > data/files/base500.dat
+	sudo taskset 2 bin/basePERF 1000  > data/files/base1000.dat
+	sudo taskset 2 bin/basePERF 5000  > data/files/base5000.dat
+	sudo taskset 2 bin/basePERF 10000 > data/files/base10000.dat
+	sudo taskset 2 bin/basePERF 20000 > data/files/base20000.dat
+genSoaPerf:
+	sudo taskset 2 bin/soaPERF 500   > data/files/soa500.dat
+	sudo taskset 2 bin/soaPERF 1000  > data/files/soa1000.dat
+	sudo taskset 2 bin/soaPERF 5000  > data/files/soa5000.dat
+	sudo taskset 2 bin/soaPERF 10000 > data/files/soa10000.dat
+	sudo taskset 2 bin/soaPERF 20000 > data/files/soa20000.dat
+genQuadPerf:
+	sudo taskset 2 bin/quadPERF 500   > data/files/quad500.dat
+	sudo taskset 2 bin/quadPERF 1000  > data/files/quad1000.dat
+	sudo taskset 2 bin/quadPERF 5000  > data/files/quad5000.dat
+	sudo taskset 2 bin/quadPERF 10000 > data/files/quad10000.dat
+	sudo taskset 2 bin/quadPERF 20000 > data/files/quad20000.dat
 
-AOS: nbody1.c
-	$(CC) $(CFLAGS) $< -o nbody1 $(sdllib) -lm -fopenmp
 
-test_quad2: QUAD/test.c QUAD/main.c QUAD/geometry.h QUAD/global.h QUAD/quadTree.h QUAD/simulation.h
-	$(CC) QUAD/test.c -o test_quad2 $(sdllib) -lm -fopenmp
 
+# DATA PROCESSING PERFORMANCE
+perfProcess: data/data_processing/perf_process.c
+	$(CC) $< -o bin/$@
+plotPerf: data/data_processing/gnu_perf.gp data/data_processing/perf_process.c
+	gnuplot -c $<
+	eog perf.png
+plotPerfSpeedup: data/data_processing/gnu_perf_speedup.gp data/data_processing/perf_process.c
+	gnuplot -c $<
+	eog perfSpeedup.png
+
+# DATA PROCESSING PRECISION
+precProcess: data/data_processing/prec_process.c
+	$(CC) -g $< -o bin/$@
+	bin/precProcess 5000 data/files/basePrec data/files/soaPrec data/files/quadPrec
+plotPrec: data/data_processing/gnu_prec.gp data/data_processing/prec_process.c
+	gnuplot -c $<
+	eog prec.png
 
 clean:
-	rm -f nbody1 nbodySOA nbody0 quad quad2 memtest a.out
+	rm -f bin/*
+	rm -f a.out
+	rm -f *.png
 	rm -r maqao*
+
+cleandat:
+	rm -f data/files/*

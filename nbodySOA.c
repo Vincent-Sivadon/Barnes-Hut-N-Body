@@ -7,8 +7,11 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <omp.h>
 
+#if defined SDL
 #include <SDL2/SDL.h>
+#endif
 
 typedef struct {
     double *x;
@@ -56,12 +59,12 @@ double randreal()
 
 
 //
-void init_system()
+void init_system(int nbodies)
 {
     w = h = 800;
-    N = 500;
+    N = nbodies;
     G = 1;
-    Nt = 1000;
+    Nt = 10;
 
     //
     masses = malloc(N * sizeof(double));
@@ -178,6 +181,10 @@ void compute_positions()
     {
         positions.x[i] += velocities.x[i] + 0.5 * accelerations.x[i];
         positions.y[i] += velocities.y[i] + 0.5 * accelerations.y[i];
+    
+        #if defined PREC
+        printf("%.12lf %.12lf\n", positions.x[i], positions.y[i]);
+        #endif
     }
 }
 
@@ -189,43 +196,48 @@ void simulate()
   resolve_collisions();
 }
 
-int main()
+int main(int argc, char **argv)
 {
-    //
-    int i;
-    unsigned char quit = 0;
-    SDL_Event event;
-    SDL_Window *window;
-    SDL_Renderer *renderer;
+    if (argc<2) { printf("Usage : %s [nbodies]\n", argv[0]); return 1;}
+    int nbodies = atoi(argv[1]);
 
     srand(2);
 
     //
+    int i;
+    unsigned char quit = 0;
+    #if defined SDL
+    SDL_Event event;
+    SDL_Window *window;
+    SDL_Renderer *renderer;
+
+
+
     SDL_Init(SDL_INIT_VIDEO);
     SDL_CreateWindowAndRenderer(800, 800, SDL_WINDOW_OPENGL, &window, &renderer);
+    #endif
 
     //
-    init_system();
+    init_system(nbodies);
         
     // Main loop
     for(int i=0 ; !quit && i<Nt ; i++)
     {
         // CORE
-        double before = (double) rdtsc();
+        double before = omp_get_wtime();
         simulate();
-        double after  = (double) rdtsc();
+        double after  = omp_get_wtime();
 
-        //
-        //printf("%d %lf\n", i, (after - before));
+        #if defined PERF
+        printf("%d %lf\n", i, (after - before));
+        #endif
 
+        #if defined SDL
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
 
         for(int i=0 ; i<N ; i++)
         {
-            #if defined PREC
-                printf("%.12lf\n", positions.x[i]);
-            #endif
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
             SDL_RenderDrawPoint(renderer, positions.x[i], positions.y[i]);
         }
@@ -239,13 +251,15 @@ int main()
             if (event.type == SDL_KEYDOWN)
             if (event.key.keysym.sym == SDLK_q)
                 quit = 1;
-
+        #endif
     }
 
+    #if defined SDL
     // CLEAN
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
+    #endif
 
     return 0;
 }

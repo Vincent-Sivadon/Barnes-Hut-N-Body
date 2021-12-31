@@ -16,11 +16,14 @@
 
 
 
-int main() {
+int main(int argc, char *argv[]) {
+    if (argc<2) { printf("Usage : %s [nbodies]\n", argv[0]); return 1;}
+
     // Init Rand Seed
     srand(2);
 
-    init_system();
+    int nbodies = atoi(argv[1]);
+    init_system(nbodies);
 
     unsigned char quit = 0;
     #if defined SDL
@@ -68,9 +71,7 @@ int main() {
 
         perf += after-before;
         
-        #if defined PERF1000
-            printf("%d %lf\n", i, (after - before));
-        #elif defined PERF500
+        #if defined PERF
             printf("%d %lf\n", i, (after - before));
         #endif
 

@@ -91,17 +91,13 @@ double mod(vector a)
 }
 
 //
-void init_system()
+void init_system(int N)
 {
   w = h = 800;
-  #if defined PERF1000
-    nbodies = 1000;
-  #else
-    nbodies = 500;
-  #endif
+  nbodies = N;
 
   GravConstant = 1;
-  timeSteps = 1000;
+  timeSteps = 10;
   
   //
   masses        = malloc(nbodies * sizeof(double));
@@ -164,8 +160,13 @@ void compute_velocities()
 //
 void compute_positions()
 {
-  for (int i = 0; i < nbodies; i++)
+  for (int i = 0; i < nbodies; i++) {
     positions[i] = add_vectors(positions[i], add_vectors(velocities[i], scale_vector(0.5, accelerations[i])));
+
+    #if defined PREC
+    printf("%12lf %.12lf\n", positions[i].x, positions[i].y);
+    #endif
+  }
 }
 
 //
@@ -180,6 +181,9 @@ void simulate()
 //
 int main(int argc, char **argv)
 {
+  if (argc<2) { printf("Usage : %s [nbodies]\n", argv[0]); return 1;}
+  int N = atoi(argv[1]);
+
   srand(2);
 
   //
@@ -196,7 +200,7 @@ int main(int argc, char **argv)
   #endif
 
   //
-  init_system();
+  init_system(N);
 
   double perf = 0;
   
@@ -212,9 +216,7 @@ int main(int argc, char **argv)
       double after = omp_get_wtime();
       perf += after-before;
     
-      #ifdef PERF500
-        printf("%d %lf\n", i, (after - before));
-      #elif defined PERF1000
+      #ifdef PERF
         printf("%d %lf\n", i, (after - before));
       #endif
 
@@ -224,9 +226,6 @@ int main(int argc, char **argv)
       
       for (int i = 0; i < nbodies; i++)
 	    {
-        #ifdef PREC
-          printf("%.12lf\n", positions[i].x);
-        #endif
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_RenderDrawPoint(renderer, positions[i].x, positions[i].y);
 	    }
@@ -244,8 +243,8 @@ int main(int argc, char **argv)
     }
 
     double bw = (nbodies * 6 * 64* 10e-9) * timeSteps/perf;
-    printf("Overall time (s) : %lf\n", perf);
-    printf("Bandwidth (GB/s) : %lf\n", bw);
+    //printf("Overall time (s) : %lf\n", perf);
+    //printf("Bandwidth (GB/s) : %lf\n", bw);
   
   #if defined SDL
   SDL_DestroyRenderer(renderer);

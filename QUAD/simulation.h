@@ -22,21 +22,14 @@ double randD(double shift, double width) {
 }
 
 //
-void init_system() {
+void init_system(int nbodies) {
     //
-    WIDTH = 1600;
-    HEIGHT = 900;
+    WIDTH = 800;
+    HEIGHT = 800;
 
-    // Number of bodies
-    #if defined PERF1000
-        N = 1000;
-    #elif defined BIG
-        N = 20000;
-    #else 
-        N = 500;
-    #endif
+    N = nbodies;
 
-    Nt = 1000;
+    Nt = 10;
     masse = 5;
 
     // Pointer to all particles
@@ -75,7 +68,7 @@ void compute_acceleration(Quad* quad, int i) {
         // Distance between quad center and our particle i
         double r2 = (quad->boundary.x - a.x)*(quad->boundary.x - a.x) +
                     (quad->boundary.y - a.y)*(quad->boundary.y - a.y);
-        double theta = (2*quad->boundary.w)*(2*quad->boundary.w) / r2;
+        double theta = (quad->boundary.w * quad->boundary.w) / r2;
 
         if(theta < 0.5) {
             Point b = {quad->boundary.x, quad->boundary.y};
@@ -130,6 +123,10 @@ void simulate(Quad* quad) {
 
         pos.x[i] += vel.x[i] + 0.5 * acc.x[i];
         pos.y[i] += vel.y[i] + 0.5 * acc.y[i];        
+
+        #if defined PREC
+        printf("%.12lf %.12lf\n",pos.x[i], pos.y[i]);
+        #endif
         
     }
 
