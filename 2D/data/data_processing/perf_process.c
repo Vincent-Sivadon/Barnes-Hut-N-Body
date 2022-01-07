@@ -17,10 +17,14 @@ FILE* openFile(char* filename)
 
 int main()
 {
+    // Number of time steps used
+    int Nt = 10;
+
+
     // Array to store data
-    double base[5][1000];
-    double soa[5][1000];
-    double quad[5][1000];
+    double base[5][Nt];
+    double soa[5][Nt];
+    double quad[5][Nt];
 
     // Array to store processed data
     double base_mean[5]    ; double base_sigma[5];
@@ -61,7 +65,7 @@ int main()
     double tmp;
 
     // Getting data
-    for(int i=0 ; i<1000 ; i++)
+    for(int i=0 ; i<Nt ; i++)
     {
         fscanf(f_base500,   "%lf %lf\n", &tmp, &b500);
         fscanf(f_base1000,  "%lf %lf\n", &tmp, &b1000);        
@@ -102,11 +106,11 @@ int main()
 
     // Mean
     for(int i=0 ; i<5 ; i++)
-        for(int j=0 ; j<1000 ; j++)
+        for(int j=0 ; j<Nt ; j++)
         {
-            base_mean[i] += base[i][j]/1000;
-            soa_mean[i]  += soa[i][j]/1000;
-            quad_mean[i] += quad[i][j]/1000;
+            base_mean[i] += base[i][j]/Nt;
+            soa_mean[i]  += soa[i][j]/Nt;
+            quad_mean[i] += quad[i][j]/Nt;
         }
 
     // Standard Deviation

@@ -120,11 +120,11 @@ int main(int argc, char **argv)
   // Total memory size
   const u64 s = sizeof(particle_t) * n;
   
+  /* Print header
   printf("\n\033[1mTotal memory size:\033[0m %llu B, %llu KiB, %llu MiB\n\n", s, s >> 10, s >> 20);
-  
-  //
   printf("\033[1m%5s %10s %10s %8s\033[0m\n", "Step", "Time, s", "Interact/s", "GFLOP/s"); fflush(stdout);
-  
+  */
+
   //
   for (u64 i = 0; i < steps; i++)
     {
@@ -147,7 +147,7 @@ int main(int argc, char **argv)
 	  drate += (h2 * h2) / ((end - start) * (end - start));
 	}
 
-      //
+      /*
       printf("%5llu %10.3e %10.3e %8.1f %s\n",
 	     i,
 	     (end - start),
@@ -156,17 +156,21 @@ int main(int argc, char **argv)
 	     (i < warmup) ? "*" : "");
       
       fflush(stdout);
+      */
+     printf("%lf\n", end-start);
     }
 
   //
   rate /= (f64)(steps - warmup);
   drate = sqrt(drate / (f64)(steps - warmup) - (rate * rate));
 
+  /*
   printf("-----------------------------------------------------\n");
   printf("\033[1m%s %4s \033[0;36m%10.1lf +- %.1lf GFLOP/s\033[0;36m\n",
 	 "Average performance:", "", rate, drate);
   printf("-----------------------------------------------------\n");
-  
+  */
+
   //
   free(p);
 

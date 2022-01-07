@@ -5,18 +5,11 @@
 
 
 //
-void init_system() {
+void init_system(int n) {
 
     // Number of bodies
-    #if defined PERF1000
-        N = 1000;
-    #elif defined BIG
-        N = 20000;
-    #else 
-        N = 16384;
-    #endif
-
-    Nt = 1000;
+    N = n;
+    Nt = 10;
     masse = 5;
 
     // Pointer to all particles

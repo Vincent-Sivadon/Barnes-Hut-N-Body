@@ -12,19 +12,20 @@
 
 
 
-int main() {
+int main(int argc, char **argv) {
     // Init Rand Seed
     srand(2);
 
-    init_system();
+    // Number of bodies
+    const int n = (argc > 1) ? atoll(argv[1]) : 16384;
+
+    init_system(n);
 
     Box boundary = newBox(0.5,0.5,0.5,0.5,0.5,0.5);
     Octree* octree;
 
     double perf = 0;
-    #if !defined PREC
-    printf("\033[1m%5s %10s\033[0m\n", "Step", "Time, s\n"); fflush(stdout);
-    #endif
+    //printf("\033[1m%5s %10s\033[0m\n", "Step", "Time, s\n"); fflush(stdout);
 
     // Main loop
     for(int n=0 ; n<Nt ; n++) {
@@ -49,17 +50,17 @@ int main() {
         perf += after-before;
         
         #if !defined PREC
-        printf("%d, %lf\n", n, after-before); fflush(stdout);
+        printf("%lf\n", after-before); fflush(stdout);
         #endif
     }
 
     double bw = (N * 6 * 64* 10e-9) * Nt/perf;
 
-    #if !defined PREC
+    /*
     printf("Overall time (s) : %lf\n", perf);
     printf("Bandwith (GB/sec): %lf\n", bw);
-    #endif
-  
+    */
+
     free(pos.x) ; free(pos.y) ; free(pos.z) ;
     free(vel.x) ; free(vel.y) ; free(vel.z);
     free(acc.x) ; free(acc.y) ; free(acc.z);

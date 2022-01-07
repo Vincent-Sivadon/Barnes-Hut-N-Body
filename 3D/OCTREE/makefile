@@ -5,9 +5,6 @@ LFLAGS=-lm -fopenmp
 octree: main.c geometry.h global.h octree.h simulation.h
 	gcc $(CFLAGS) $< -o $@ $(LFLAGS)
 
-octreePREC: main.c geometry.h global.h octree.h simulation.h
-	gcc -DPREC $(CFLAGS) $< -o $@ $(LFLAGS)
-
 octree_debug: main.c geometry.h global.h octree.h simulation.h
 	gcc -march=native -mavx2 -O1 -g $< -o $@ $(LFLAGS)
 
