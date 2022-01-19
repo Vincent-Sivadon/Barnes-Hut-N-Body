@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsimulation.a  CMakeFiles/simulation.dir/src/init.cpp.o CMakeFiles/simulation.dir/src/octree.cpp.o CMakeFiles/simulation.dir/src/update.cpp.o
+/usr/bin/ranlib libsimulation.a
