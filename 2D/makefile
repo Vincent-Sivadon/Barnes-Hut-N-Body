@@ -28,7 +28,7 @@
 ##		Il existe enfin des macro de génération de graphe
 ##			- perfProcess et precProcess pour traiter les données
 ##			- plotPerfSpeedup, plotPerf, plotPrec, pour générer les graphe
-##		
+##			- || make all || permet la génération de tout les exécutables
 ##############################################################################
 
 
@@ -37,6 +37,8 @@ CFLAGS=-Ofast
 sdllib=`sdl2-config --cflags --libs`
 LFLAGS=-lm -fopenmp
 
+
+all : quad quadPERF quadPREC base basePERF basePREC soa soaPERF soaPREC asmPERF perfProcess
 
 # QUAD : generation des executables de la simulation par Barnes-Hut
 # version standard avec visualisation

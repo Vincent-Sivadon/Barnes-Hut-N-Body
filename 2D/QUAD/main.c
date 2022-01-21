@@ -66,11 +66,18 @@ int main(int argc, char *argv[]) {
         // Mise à jour des positions
         simulate(quad);
 
+        // à décocher si on veut dessiner le quad
+        #if defined SDL
+        drawQuad(renderer, quad);
+        SDL_Delay(1000);
+        #endif
+
         // Nettoyage mémoire du quad et de tout ses enfants
         deconstructTree(quad);
 
         double after  = omp_get_wtime(); // ------------------------------------------
         // ----------------------------------------------------------------------------
+
 
         // acumulateur des temps
         perf += after-before;

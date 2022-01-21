@@ -37,9 +37,9 @@ message("
 ")
 message(" ============================== ATTENTION ==============================")
 message("
-    Librairies externes dont le code source n'est pas présent dans le dossier (à venir)
+    Librairies externes dont le code source n'est pas présent dans le dossier
         - glfw     (gestion de la fenêtre)
-        - assimp   (gestion des modèles)
+        - assimp   (gestion des modèles) installer avec : sudo apt-get install assimp
 ")
 message("${ESCAPE}[0m")
 
