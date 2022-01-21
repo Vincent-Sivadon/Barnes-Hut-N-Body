@@ -1,9 +1,54 @@
+string(ASCII 27 ESCAPE)
+message("${ESCAPE}[1;36m")
+message(" =================================== BUILD ===================================")
+message("
+    Pour constuire le projet :  
+    ```
+        mkdir build  
+        cd build  
+        cmake ..  
+    ```
+    Pour construire tout les exectuables : `make`  
+
+")
+message(" ======================== LISTE DES EXECUTABLES ET MACRO ========================")
+message("
+    ## Liste des executables
+    Tout les executables vont être dans le répertoire build.  
+    * nbody   : simulation 3D graphique du problème des N-Corps
+")
+message(" ============================== STRUCTURE DU PROJET ==============================")
+message("
+    La hiérarchie est la suivante :
+    * simulation : librairie qui permet la mise à jour des positions des corps
+        * box          : notions relatives aux boites 3D
+        * init         : initialisation de la simulation (vitesses et matrices de model)
+        * octree       : code relatifs aux octree
+        * simulation   : calculs sur les positions
+        les headers sont dans le dossier include, et les implémentations dans le dossier src
+    * external_libs    : code source et build des librairies externes nécessaires au code
+        * glad
+        * glm
+        * imgui
+        * stb_image
+    * mylib            : librairie d'abstraction des concepts liés à OpenGL
+    * resources        : contient le modèle d'un cube
+    * shaders          : programme graphique GPU lié à la visualisation
+")
+message(" ============================== ATTENTION ==============================")
+message("
+    Librairies externes dont le code source n'est pas présent dans le dossier (à venir)
+        - glfw     (gestion de la fenêtre)
+        - assimp   (gestion des modèles)
+")
+message("${ESCAPE}[0m")
+
+
+
+
 cmake_minimum_required(VERSION 3.12)
 project(NBODY VERSION 0.1.0) 
 
-include(CTest)
-enable_testing()
-#add_subdirectory(tests)
 
 find_package(glfw3 REQUIRED)
 

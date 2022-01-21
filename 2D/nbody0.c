@@ -203,6 +203,7 @@ int main(int argc, char **argv)
   init_system(N);
 
   double perf = 0;
+  double acc = 0;
   
   //Main loop
   for (int i = 0; !quit && i < timeSteps; i++)
@@ -215,6 +216,7 @@ int main(int argc, char **argv)
       //
       double after = omp_get_wtime();
       perf += after-before;
+      acc += perf;
     
       #ifdef PERF
         printf("%d %lf\n", i, (after - before));
@@ -242,9 +244,7 @@ int main(int argc, char **argv)
       #endif
     }
 
-    double bw = (nbodies * 6 * 64* 10e-9) * timeSteps/perf;
-    //printf("Overall time (s) : %lf\n", perf);
-    //printf("Bandwidth (GB/s) : %lf\n", bw);
+    printf("Temps moyen d'iteration (s) : %lf\n", acc/timeSteps);
   
   #if defined SDL
   SDL_DestroyRenderer(renderer);

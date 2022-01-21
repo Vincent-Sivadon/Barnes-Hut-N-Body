@@ -17,80 +17,95 @@ double randreal()
 
   return s * ((double)a / (double)b); 
 }
-double randD(double shift, double width) {
-    return shift + width * (double) rand() / (double) RAND_MAX;
-}
 
-//
+
+// Initialise les paramètres de la simulation et alloue l'espace mémoire nécessaire
 void init_system(int nbodies) {
-    //
+    // Dimensions de la fenêtre (SDL)
     WIDTH = 800;
     HEIGHT = 800;
 
-    N = nbodies;
+    N = nbodies; // Nombre de corps
+    Nt = 10;     // Nombre de pas de temps
+    masse = 5;   // Masse de chaque corps
 
-    Nt = 10;
-    masse = 5;
-
-    // Pointer to all particles
+    // Allocation des tableaux contenants les positions et vitesses de chaque corps
     pos.x = malloc(N * sizeof(double));
     pos.y = malloc(N * sizeof(double));
     vel.x = malloc(N * sizeof(double));
     vel.y = malloc(N * sizeof(double));
-    acc.x = malloc(N * sizeof(double));
-    acc.y = malloc(N * sizeof(double));
 
     // for every particles
     for(int i=0; i<N ; i++) {
+        // Random position
         pos.x[i] = randxy(10, WIDTH);
         pos.y[i] = randxy(10, HEIGHT);
 
+        // Random velocity
         vel.x[i] = randreal();
         vel.y[i] = randreal();
     }
 }
 
+// Compute the acceleration for i
+// ax, ay i's acceleration componants
+void compute_acceleration(Quad* quad, int i, double* ax, double* ay) {
+    // Get coords one time
+    double ix = pos.x[i];
+    double iy = pos.y[i];
 
-void compute_acceleration(Quad* quad, int i) {
-    Point a = {pos.x[i], pos.y[i]};
-
+    // if quad divided
     if( !quad->is_divided) {
         if (quad->id == i || quad->size==0) return;
         // Compute the force between and the particle in the external node
-        Point b = {pos.x[quad->id], pos.y[quad->id]};
+        double jx = pos.x[quad->id];
+        double jy = pos.y[quad->id];
 
-        double r = sqrt( (a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
+        // distance between those two
+        double r = sqrt(
+            (ix - jx)*(ix - jx) +
+            (iy - jy)*(iy - jy)
+        );
 
-        acc.x[i] += (b.x - a.x) * masse / (1e7 + r*r*r);
-        acc.y[i] += (b.y - a.y) * masse / (1e7 + r*r*r);
+        // update acceleration
+        *ax += (jx - ix) * masse / (1e7 + r*r*r);
+        *ay += (jy - iy) * masse / (1e7 + r*r*r);
     }
-    else {
+    // If divided, then see if we can approximate, or go deeper in the tree
+    else {  
         // Distance between quad center and our particle i
-        double r2 = (quad->boundary.x - a.x)*(quad->boundary.x - a.x) +
-                    (quad->boundary.y - a.y)*(quad->boundary.y - a.y);
+        double r2 = (quad->boundary.x - ix)*(quad->boundary.x - ix) +
+                    (quad->boundary.y - iy)*(quad->boundary.y - iy);
+        // Solid angle between i and the quad
         double theta = (quad->boundary.w * quad->boundary.w) / r2;
 
+        // Critère d'approximation
         if(theta < 0.5) {
-            Point b = {quad->boundary.x, quad->boundary.y};
+            double jx = quad->boundary.x;
+            double jy = quad->boundary.y;
 
+            // Distance
             double r = sqrt( r2 );
 
-            acc.x[i] += (b.x - a.x) * masse * quad->size / (1e7 + r*r*r);
-            acc.y[i] += (b.y - a.y) * masse * quad->size / (1e7 + r*r*r);
+            *ax += (jx - ix) * masse * quad->size / (1e7 + r*r*r);
+            *ay += (jy - iy) * masse * quad->size / (1e7 + r*r*r);
             return;
         }
-        compute_acceleration(quad->northwest, i);
-        compute_acceleration(quad->northeast, i);
-        compute_acceleration(quad->southwest, i);
-        compute_acceleration(quad->southeast, i);
+
+        // If we can't approximate, go deeper in the tree
+        compute_acceleration(quad->northwest, i, ax, ay);
+        compute_acceleration(quad->northeast, i, ax, ay);
+        compute_acceleration(quad->southwest, i, ax, ay);
+        compute_acceleration(quad->southeast, i, ax, ay);
     }
-    
 }
 
-//
-void resolve_collisions(int i, int j) {    
-    // If not, swap velocities :
-    // i tmp
+// Swap velocities between i and j if collision occures
+void resolve_collisions(int i, int j) {   
+    // If no collision, than go out
+    if (pos.x[i] != pos.x[j] || pos.y[i] != pos.y[j]) return;
+
+    // If collision : swap velocities
     double tmp_vx = vel.x[i];
     double tmp_vy = vel.y[i];
 
@@ -98,10 +113,16 @@ void resolve_collisions(int i, int j) {
     vel.x[j] = tmp_vx    ;  vel.y[j] = tmp_vy;
 }
 
+// Try to limit collision computation by checking if the quad is far enough
+// range is a rectangle centered on i
+// i is the body on wich we check collisions
 void search_potential_collisions(Quad* quad, int i, Rect range) {
+    // if too far, then we don't care
     if (!intersect(quad->boundary, range)) return;
 
+    // if close enough and external, than check collision
     if (!quad->is_divided) resolve_collisions(i, quad->id);
+    // if close enough but divided, go deeper in the tree
     else {
         search_potential_collisions(quad->northwest, i, range);
         search_potential_collisions(quad->northeast, i, range);
@@ -110,19 +131,23 @@ void search_potential_collisions(Quad* quad, int i, Rect range) {
     }
 }
 
+// Update bodies' positions
 void simulate(Quad* quad) {
     for (int i=0 ; i<N ; i++) {
         // Reset accelerations
-        acc.x[i] = 0;
-        acc.y[i] = 0;
+        double ax = 0;
+        double ay = 0;
 
-        compute_acceleration(quad, i);
+        // compute i's acceleration
+        compute_acceleration(quad, i, &ax, &ay);
 
-        vel.x[i] += acc.x[i];
-        vel.y[i] += acc.y[i];
+        // update i's speed
+        vel.x[i] += ax;
+        vel.y[i] += ay;
 
-        pos.x[i] += vel.x[i] + 0.5 * acc.x[i];
-        pos.y[i] += vel.y[i] + 0.5 * acc.y[i];        
+        // update i's position
+        pos.x[i] += vel.x[i] + 0.5 * ax;
+        pos.y[i] += vel.y[i] + 0.5 * ay;        
 
         #if defined PREC
         printf("%.12lf %.12lf\n",pos.x[i], pos.y[i]);
@@ -132,7 +157,10 @@ void simulate(Quad* quad) {
 
     // Collisions
     for (int i=0 ; i>N; i++) {
+        // Rectangle centered on i
         Rect range = {pos.x[i], pos.y[i], 20, 20};
+
+        //
         search_potential_collisions(quad, i, range);
     }
 }

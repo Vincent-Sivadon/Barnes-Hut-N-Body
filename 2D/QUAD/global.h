@@ -1,9 +1,9 @@
 #pragma once
 
-// Bodies variables
-Field pos, vel, acc;
+// Positions et vitesses de tout les corps
+Field pos, vel;
 
-// Dimensions of window
+// Dimensions of window (SDL)
 int WIDTH, HEIGHT;
 
 // Simulation Parameters

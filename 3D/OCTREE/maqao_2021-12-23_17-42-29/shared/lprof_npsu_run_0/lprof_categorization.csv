@@ -1,5 +1,0 @@
-Node;Process;Thread;System (%);Binary (%);MPI (%);Nb Cycle Events;OMP (%);Others (%);String (%);Memory (%);IO (%);Time (s);Math (%);Pthread (%);
-_ALL;_ALL;_ALL;0;100;0;155;0;0;0;0;0;0.8;0;0;
-SivadonUbuntu;_ALL;_ALL;0;100;0;155;0;0;0;0;0;0.8;0;0;
-SivadonUbuntu;35931;_ALL;0;100;0;155;0;0;0;0;0;0.8;0;0;
-SivadonUbuntu;35931;35931;0;100;0;155;0;0;0;0;0;0.8;0;0;

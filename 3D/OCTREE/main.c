@@ -11,7 +11,6 @@
 #include "simulation.h"
 
 
-
 int main(int argc, char **argv) {
     // Init Rand Seed
     srand(2);

@@ -1,3 +1,11 @@
+/*
+    Un octree est une boite dans l'espace, avec 8 enfants
+    qui sont eux aussi des octrees avec des boites correspondant
+    à des sous espace de leur parent.
+    On divise l'espace avec cette structure jusqu'à ce que
+    chaque sous octree ne contiennt qu'une particule
+*/
+
 #pragma once
 
 #include <stdlib.h>
@@ -24,8 +32,11 @@ struct Octree {
     // Constructeur
     Octree(Box box) : box(box), size(0), isDivided(false), id(-1) {}
 
+    // Initialise les enfants de cet octree
     void subdivide();
+    // Insert le corps d'indice i dans l'octree
     void insert(u64 i, glm::mat4 * mM);
+    // supprime l'espace mémoire allouée par cet octree et ses enfants
     void destroy();
 };
 

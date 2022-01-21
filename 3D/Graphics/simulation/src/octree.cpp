@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-
+// Initialise les enfants de cet octree
 void Octree::subdivide() {
-    // Get variables
+    // Get space limitations
     float x = box.x;
     float y = box.y;
     float z = box.z;
@@ -12,6 +12,7 @@ void Octree::subdivide() {
     float h = box.h;
     float d = box.d;
 
+    // Allocate every subtree with according space limitations
     for(long long int i=0 ; i<2; i++)
         for(long long int j=0 ; j<2; j++)
             for(long long int k=0 ; k<2; k++)
@@ -22,33 +23,38 @@ void Octree::subdivide() {
                     w/2,
                     h/2,
                     d/2));
+    // This octree is now Divided
     isDivided = true;
+
+    // Indicates that it is no longer an external tree that contains a body
     id = -1;
 }
 
 
-
+// Insert the body of index i inside the octree structure
 void Octree::insert(u64 i, glm::mat4 * mM) {
+    // Coordinates of the body
     float ax = mM[i][3].x;
     float ay = mM[i][3].y;
     float az = mM[i][3].z;
 
+    // If it is not in this octree's region, return
     if ( !box.inBox(ax, ay, az)) return ;
 
-    // 1 more point in that octree
+    // 1 more body in that octree or it's children
     size++;
     
 
-    // If external
+    // If external (then it contains only one body)
     if( !isDivided ) {
-        // If empty
-        if( size == 1 ) {id = i ; return; }
-        // If no
+        // If empty (size==1 cause we juste added by default size++)
+        if( size == 1 ) {id = i ; return; } // we placed the body here and got out
+        // If there is already a body
         else {
-            // Keep temporary octree particle
+            // Keep it's id (we will delete it by subdividing the octree)
             u64 tmp = id;
 
-            // Subdivide
+            // Subdivide the octree
             subdivide();
 
             // Re-inset point deeper
@@ -56,7 +62,7 @@ void Octree::insert(u64 i, glm::mat4 * mM) {
             size -= 2;
             insert(i, mM);
         }
-    } else {
+    } else {  // if divided, then insert deeper
         for(u64 p=0 ; p<2; p++)
             for(u64 q=0 ; q<2; q++)
                 for(u64 k=0 ; k<2; k++)
@@ -64,13 +70,15 @@ void Octree::insert(u64 i, glm::mat4 * mM) {
     }
 }
 
-
+// supprime l'espace mémoire allouée par cet octree et ses enfants
 void Octree::destroy() {
+    // If divided, then go deeper to delete all subtrees
     if (isDivided) {
         for(u64 i=0 ; i<2; i++)
             for(u64 j=0 ; j<2; j++)
                 for(u64 k=0 ; k<2; k++)
                     subtrees[i][j][k]->destroy();
     }
+    // once all of the octree's children have been destroyed, destroy it
     delete this;
 }

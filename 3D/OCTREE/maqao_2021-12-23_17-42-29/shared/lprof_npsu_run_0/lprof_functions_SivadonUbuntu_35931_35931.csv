@@ -1,5 +1,0 @@
-function_id;module;function_name;source_info;time_p;time_s;time_s_min;time_s_avg;time_s_max;cov_deviation;nb_threads;cats;
-21;octree;compute_acceleration;;54.19;0.43;;;;;;"100,0,0,0,0,0,0,0,0,0";
-24;octree;simulate;;24.52;0.2;;;;;;"100,0,0,0,0,0,0,0,0,0";
-18;octree;insertParticle;;17.42;0.14;;;;;;"100,0,0,0,0,0,0,0,0,0";
-1;octree;main;;3.87;0.03;;;;;;"100,0,0,0,0,0,0,0,0,0";

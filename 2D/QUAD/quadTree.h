@@ -9,39 +9,53 @@
 #include "geometry.h"
 
 
+// Structure principale de la méthode deBarnes-Hut
 typedef struct Quad {
+    // Limites spatiales
     Rect boundary;
+
+    // Combien il contient de corps (en comptant ceux de ses descendants)
     int size;
+
+    // Quel est l'id du corps qu'il contient (id=-1 si aucun)
     int id;
+
+    // Indique si le quad est un noeud extérieur (contient un corps) ou intérieur (divisé)
     bool is_divided;
 
+    // Descendants à allouer si le quad devient divisé
     struct Quad* northwest;
     struct Quad* northeast;
     struct Quad* southwest;
     struct Quad* southeast;
-
 } Quad;
 
+// Creation d'un nouveau quad
 Quad* newQuad(Rect boundary) {
+    // Allocation mémoire
     Quad* quad = malloc(sizeof(Quad));
+
+    // Limites spatiales
     quad->boundary = boundary;
     
+    // Un quad est par défaut extérieur sans corps
     quad->northwest = NULL;
     quad->northeast = NULL;
     quad->southwest = NULL;
     quad->southeast = NULL;
 
-    quad->is_divided = false;
-    quad->id         = -1;
+    
+    quad->is_divided = false;  // quad extérieur (non divisé)
+    quad->id         = -1;     // sans corps
     quad->size       = 0;
 
     return quad;
 }
 
 
-
+// Transforme un quad extérieur en quad divisé (c'est à dire qu'il contient des descendants)
 void subdivide(Quad* quad) {
-    // Get variables
+    // Get variables one time
     double x = quad->boundary.x;
     double y = quad->boundary.y;
     double w = quad->boundary.w;
@@ -59,17 +73,21 @@ void subdivide(Quad* quad) {
     quad->southwest = newQuad(sw);
     quad->southeast = newQuad(se);
 
+    // Le quad est maintenant divisé
     quad->is_divided = true;
-    quad->id         = -1;
+    quad->id         = -1; // et ne contient plus à proprement parlé de corps
 }
 
-
+// Attribue i à un noeud extérieur du quad (récursif)
 void insertParticle(Quad* quad, int i) {
-    // If point not in rect
-    Point a = {pos.x[i],pos.y[i]};
-    if( !inRect(a, quad->boundary) ) return ;
+    // Extract coordinates
+    double ix = pos.x[i];
+    double iy = pos.y[i];
 
-    // 1 more point in that quad
+    // S'il n'est pas contenu dans les limites de ce quad, on sort
+    if( !inRect(ix, iy, quad->boundary) ) return ;
+
+    // 1 more body in that quad
     quad->size++;
 
     // If external
@@ -78,13 +96,13 @@ void insertParticle(Quad* quad, int i) {
         if (quad->size == 1) {quad->id = i; return; }
         // If not
         else {
-            // Keep temporary quad particle
+            // Keep temporary quad body
             int tmp = quad->id;
 
             // Subdivide
             subdivide(quad);
 
-            // Re-insert point deeper
+            // Re-insert body deeper
             insertParticle(quad, tmp);
             quad->size -= 2;
             insertParticle(quad, i);
@@ -98,7 +116,7 @@ void insertParticle(Quad* quad, int i) {
     }
 }
 
-
+// Nettoyage de la mémoire alloué par tout l'arbre (quad)
 void deconstructTree(Quad* quad) {
     if (quad->is_divided) {
         deconstructTree(quad->northwest);
@@ -109,6 +127,7 @@ void deconstructTree(Quad* quad) {
     free(quad);
 }
 
+// Dessine les limitations du quad (SDL)
 #if defined SDL
 void drawQuad(SDL_Renderer* renderer, Quad* quad) {
     // If external
@@ -143,6 +162,7 @@ void drawQuad(SDL_Renderer* renderer, Quad* quad) {
 }
 #endif
 
+/* Deprecated
 Point centerOfMass(Quad* quad) {
     Point cm = {0,0};
     if (!quad->is_divided) {
@@ -158,4 +178,4 @@ Point centerOfMass(Quad* quad) {
 
     return cm;
 }
-
+*/

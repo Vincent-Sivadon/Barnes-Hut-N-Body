@@ -1,3 +1,10 @@
+/*
+    Une Box représente un cube (3D).
+    Elles modélisent les limites dans l'espace des octrees,
+    et on est amené au cours de la simulation à chercher
+    si un corps est dans cette limitation spatiale.
+*/
+
 #pragma once
 
 #include "math.h"
@@ -13,6 +20,7 @@ struct Box {
     Box(float X, float Y, float Z, float W, float H, float D)
         : x(X), y(Y), z(Z), w(W), h(H), d(D) {}
 
+    // Indique si un corps de coordonnées (p,q,r) est dans la Box
     bool inBox(float p, float q, float r) {
         return (p >  (x - w) &&
                 p <= (x + w) &&
@@ -21,6 +29,8 @@ struct Box {
                 r >  (z - d) &&
                 r <= (z + d));
     }
+
+    // Indique si deux Box se chevauchent
     bool intersect(Box box) {
         float xMax, xMin, yMax, yMin, zMax, zMin;
         if(box.x >= x) {xMax = box.x ; xMin = x;}

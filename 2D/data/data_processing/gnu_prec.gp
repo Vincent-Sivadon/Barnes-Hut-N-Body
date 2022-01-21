@@ -3,10 +3,10 @@ set output 'prec.png'
 
 set grid
 
-set ylabel "Simulation iteration"
+set ylabel "Position Mean"
 #set logscale y
 
-set xlabel "Position mean"
+set xlabel "Simulation iteration"
 
 set key left top
 

@@ -22,6 +22,7 @@ int main(int argc, char *argv[]) {
     // Init Rand Seed
     srand(2);
 
+    // Initialisation du système
     int nbodies = atoi(argv[1]);
     init_system(nbodies);
 
@@ -36,9 +37,11 @@ int main(int argc, char *argv[]) {
     SDL_CreateWindowAndRenderer(WIDTH, HEIGHT, SDL_WINDOW_OPENGL, &window, &renderer);
     #endif
 
+    // Initialisation des limites du quad principal et déclaration de celui-ci
     Rect boundary = newRect(WIDTH/2,HEIGHT/2,WIDTH/2,HEIGHT/2);
     Quad* quad;
 
+    // Accumulateur des temps de chaque itération
     double perf = 0;
 
     // Main loop
@@ -51,26 +54,28 @@ int main(int argc, char *argv[]) {
         // ----------------------------------------------------------------------------
         double before = omp_get_wtime(); // ------------------------------------------
 
+        // Creation du quad principal de cette itération
         quad = newQuad(boundary);
-        subdivide(quad);
+        subdivide(quad);        
         
-        
+        // Insertion des corps dans ce quad
         for( int i=0 ; i<N ;i++) {
             insertParticle(quad, i);
         }
         
-
+        // Mise à jour des positions
         simulate(quad);
 
-        //drawQuad(renderer, quad);
-
+        // Nettoyage mémoire du quad et de tout ses enfants
         deconstructTree(quad);
 
         double after  = omp_get_wtime(); // ------------------------------------------
         // ----------------------------------------------------------------------------
 
+        // acumulateur des temps
         perf += after-before;
         
+        // Display perf report
         #if defined PERF
             printf("%d %lf\n", i, (after - before));
         #endif
@@ -108,13 +113,11 @@ int main(int argc, char *argv[]) {
         printf("Bandwith (GB/sec): %lf\n", bw);
     #endif
   
+    // Clean allocated memory
     free(pos.x);
     free(pos.y);
     free(vel.x);
-    free(vel.y);
-    free(acc.x);
-    free(acc.y);
-    
+    free(vel.y);    
 
     // CLEAN
     #if defined SDL

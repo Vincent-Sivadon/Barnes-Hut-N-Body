@@ -20,7 +20,6 @@ int main()
     // Number of time steps used
     int Nt = 10;
 
-
     // Array to store data
     double base[5][Nt];
     double soa[5][Nt];

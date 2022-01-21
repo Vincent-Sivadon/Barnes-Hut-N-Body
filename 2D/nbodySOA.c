@@ -28,11 +28,9 @@ int w, h;
 int N;   // Number of bodies
 int Nt;  // Number of time steps
 
-//
-double *masses, G;
 
 //
-Field positions, velocities, accelerations;
+Field positions, velocities;
 
 // -----------------------------------------------------------------
 
@@ -63,21 +61,14 @@ void init_system(int nbodies)
 {
     w = h = 800;
     N = nbodies;
-    G = 1;
     Nt = 10;
-
-    //
-    masses = malloc(N * sizeof(double));
 
     // Field Declaration
     decl_field(N, &positions);
     decl_field(N, &velocities);
-    decl_field(N, &accelerations);
 
     for(int i=0; i<N ; i++)
     {
-        masses[i] = 5;
-
         positions.x[i] = randxy(10, w);
         positions.y[i] = randxy(10, h);
 
@@ -126,52 +117,36 @@ void resolve_collisions()
     }
 }
 
-double mod(int i, int j){
-    return sqrt(
-            (positions.x[i] - positions.x[j]) * (positions.x[i] - positions.x[j]) +
-            (positions.y[i] - positions.y[j]) * (positions.y[i] - positions.y[j])
-        );
-}
 
 
 void compute_accelerations()
 {
-    // Temporary vector
-    double tmp_x = 0;
-    double tmp_y = 0;
-
-    for (int i=0 ; i<N ; i++) {accelerations.x[i] = 0; accelerations.y[i]=0; }
-
-    for(int i=0 ; i<N ; i++){  
-        for(int j=i+1 ; j<N ; j++){
-            // Distance between body i and body j
-            double r = mod(i,j);
-
-            // Compute acceleration between i and j
-            tmp_x = tmp_y = G * masses[j] / (1e7 + pow(r, 3));
-
-            // X
-            tmp_x *= (positions.x[j] - positions.x[i]);
-            accelerations.x[i] += tmp_x;
-            accelerations.x[j] -= tmp_x;
-
-            // Y
-            tmp_y *= (positions.y[j] - positions.y[i]);
-            accelerations.y[i] += tmp_y;
-            accelerations.y[j] -= tmp_y;
-        }
-    }
-}
-
-
-
-//
-void compute_velocities()
-{
     for(int i=0 ; i<N ; i++)
     {
-        velocities.x[i] += accelerations.x[i];
-        velocities.y[i] += accelerations.y[i];
+        // Reset accelerations  
+        double fx = 0;
+        double fy = 0;
+
+        // Already access i coords to limit memory access
+        double xi = positions.x[i];
+        double yi = positions.y[i];
+
+        for(int j=0 ; j<N ; j++)
+        {
+                
+            double xj = positions.x[j];
+            double yj = positions.y[j];
+
+            double dx = xi - xj;
+            double dy = yi - yj;
+            double r = sqrt(dx*dx + dy*dy);
+            double r3inv = 1/(r*r*r + 1e7);
+
+            fx += dx * 5 * r3inv;
+            fy += dy * 5 * r3inv;
+        }
+        velocities.x[i] += fx;
+        velocities.y[i] += fy;
     }
 }
 
@@ -179,8 +154,8 @@ void compute_positions()
 {
     for(int i=0 ; i<N ; i++)
     {
-        positions.x[i] += velocities.x[i] + 0.5 * accelerations.x[i];
-        positions.y[i] += velocities.y[i] + 0.5 * accelerations.y[i];
+        positions.x[i] += velocities.x[i];
+        positions.y[i] += velocities.y[i];
     
         #if defined PREC
         printf("%.12lf %.12lf\n", positions.x[i], positions.y[i]);
@@ -191,7 +166,6 @@ void compute_positions()
 void simulate()
 {
   compute_accelerations();
-  compute_velocities();
   compute_positions();
   resolve_collisions();
 }
@@ -219,6 +193,8 @@ int main(int argc, char **argv)
 
     //
     init_system(nbodies);
+
+    double perf = 0;
         
     // Main loop
     for(int i=0 ; !quit && i<Nt ; i++)
@@ -227,6 +203,8 @@ int main(int argc, char **argv)
         double before = omp_get_wtime();
         simulate();
         double after  = omp_get_wtime();
+
+        perf += (after-before);
 
         #if defined PERF
         printf("%d %lf\n", i, (after - before));
@@ -253,6 +231,8 @@ int main(int argc, char **argv)
                 quit = 1;
         #endif
     }
+
+    //printf("Temps moyen d'iteration (s) : %lf\n", perf/Nt);
 
     #if defined SDL
     // CLEAN
